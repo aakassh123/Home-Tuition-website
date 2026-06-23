@@ -1,0 +1,228 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us | Era of Education</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/guruji.css">
+</head>
+<!-- FontAwesome CDN -->
+
+<header class="site-header" id="siteHeader">
+  <div class="nav-container">
+    <a href="index.html" class="logo"><img src="images/Logo.PNG" alt="Era of Education Logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="student.html">Students</a>
+      <a href="teacher.html">Teachers</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <a href="demo.html" class="nav-cta">Book Free Demo</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO SLIDER -->
+<section class="slider">
+  <div class="slides active">
+    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350" alt="Students studying together" loading="lazy">
+  </div>
+  <div class="slides">
+    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" alt="Teacher helping a student" loading="lazy">
+  </div>
+  <div class="slides">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Child reading a book" loading="lazy">
+  </div>
+</section>
+
+<!-- CONTACT INFO -->
+<section class="contact-section reveal">
+  <span class="eyebrow center" style="display:block;">We're Here For You</span>
+  <h1>Contact Era of Education</h1>
+  <p>We are always ready to help you. Reach us anytime!</p>
+
+  <div class="contact-grid">
+
+    <div class="contact-card icon-card reveal">
+      <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone icon">
+      <h3>Call Us</h3>
+      <a href="tel:+917289053560">📞 +91 72890 53560</a>
+    </div>
+
+    <div class="contact-card icon-card reveal reveal-delay-1">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp icon">
+      <h3>WhatsApp</h3>
+      <a href="https://wa.me/917289053560" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+    </div>
+
+    <div class="contact-card icon-card reveal reveal-delay-2">
+      <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Email icon">
+      <h3>Email</h3>
+      <a href="mailto:eraofedu@gmail.com">eraofedu@gmail.com</a>
+    </div>
+
+    <div class="contact-card icon-card reveal">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram icon">
+      <h3>Instagram</h3>
+      <a href="https://www.instagram.com/hometutor.in?igsh=MTU3ZzVyZzloMjFyYQ==" target="_blank" rel="noopener noreferrer">Visit Instagram</a>
+    </div>
+
+    <div class="contact-card icon-card reveal reveal-delay-1">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube icon">
+      <h3>YouTube</h3>
+      <a href="https://youtube.com/@eraofedu?si=i4__-mi9zFN7NMRL" target="_blank" rel="noopener noreferrer">Visit YouTube</a>
+    </div>
+
+    <div class="contact-card icon-card reveal reveal-delay-2">
+      <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Map icon">
+      <h3>Location</h3>
+      <a href="https://maps.app.goo.gl/oJfTPUA3ezxA5rBv9" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+let slides = document.querySelectorAll(".slides");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000);
+</script>
+<!-- removed duplicate Font Awesome includes -->
+
+<!-- Footer Start -->
+<footer style="
+background:linear-gradient(180deg,#000000,#0b0b0b,#000000);
+color:#dcdcdc;
+padding:50px 70px 25px;
+font-family:'Segoe UI',Arial,sans-serif;
+box-shadow:0 -10px 30px rgba(0,0,0,0.8);
+">
+
+  <!-- TOP BAR -->
+  <div style="
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:25px;
+  margin-bottom:30px;
+  ">
+    
+    <h2 style="color:#ffffff;margin:0;font-weight:600;">
+      Stay Updated with Era of Education
+    </h2>
+
+    <div style="display:flex;box-shadow:0 0 20px rgba(0,255,255,0.2);border-radius:30px;overflow:hidden;">
+      <input type="email" placeholder="Enter your email"
+        style="
+        padding:12px 18px;
+        width:230px;
+        border:none;
+        outline:none;
+        font-size:14px;">
+      <button
+        style="
+        padding:12px 20px;
+        background:linear-gradient(135deg,#00c6ff,#0072ff);
+        border:none;
+        color:#fff;
+        cursor:pointer;
+        font-weight:600;">
+        Subscribe
+      </button>
+    </div>
+
+    <div>
+      <span style="font-size:13px;color:#9a9a9a;">Call Anytime</span>
+      <h3 style="color:#00e5ff;margin:5px 0 0;">+91 72890 53560</h3>
+    </div>
+  </div>
+
+  <hr style="border:0;height:1px;background:linear-gradient(to right,transparent,#333,transparent);margin:35px 0;">
+
+  <!-- MAIN FOOTER -->
+  <div style="
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:35px;
+  ">
+
+    <!-- BRAND -->
+    <div>
+      <h3 style="color:#00e5ff;margin-bottom:12px;">Era of Education</h3>
+      <p style="line-height:1.8;">
+        Taramandal Road, Gorakhpur<br>
+        📞 +91 72890 53560<br>
+        ✉ eraofedu@gmail.com
+      </p>
+
+      <div style="margin-top:15px;">
+        <span style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;margin-right:8px;">f</span>
+        <span style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;margin-right:8px;">in</span>
+        <span style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;margin-right:8px;">t</span>
+        <span style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;">ig</span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div>
+      <h4 style="color:#ffffff;margin-bottom:14px;">Services</h4>
+      <p>Home Tuition</p>
+      <p>Online Classes</p>
+      <p>Free Demo</p>
+      <p>Career Guidance</p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div>
+      <h4 style="color:#ffffff;margin-bottom:14px;">Quick Links</h4>
+      <p>Home</p>
+      <p>Students</p>
+      <p>Teachers</p>
+      <p>Contact</p>
+    </div>
+
+    <!-- LEGAL -->
+    <div>
+      <h4 style="color:#ffffff;margin-bottom:14px;">Privacy & Info</h4>
+      <p>Terms & Conditions</p>
+      <p>Privacy Policy</p>
+      <p>Get in Touch</p>
+      <p>Become a Partner</p>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div style="
+  text-align:center;
+  margin-top:40px;
+  padding-top:20px;
+  font-size:13px;
+  color:#8a8a8a;
+  border-top:1px solid #222;
+  ">
+    ✨ Simple is Powerful • © 2026 Era of Education. All Rights Reserved
+  </div>
+
+</footer>
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top">
+  <i class="fa-solid fa-arrow-up"></i>
+</a>
+ <script src="js/script.js"></script>
+<script src="js/guruji.js"></script>
+
+</body>
+</html>

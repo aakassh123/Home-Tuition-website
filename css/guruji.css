@@ -1,0 +1,100 @@
+/* ================================================================
+   GURUJI CHATBOT — Era of Education
+   Floating assistant widget. Bottom-LEFT (WhatsApp stays bottom-right).
+   ================================================================ */
+.guruji-launcher{
+  position:fixed; left:22px; bottom:28px; z-index:1000;
+  width:62px; height:62px; border-radius:50%;
+  background:var(--grad-primary, linear-gradient(135deg,#4C3FE0,#7B61FF));
+  display:flex; align-items:center; justify-content:center;
+  font-size:28px; cursor:pointer; border:none;
+  box-shadow:0 10px 26px rgba(76,63,224,0.45);
+  animation:gurujiPulse 2.4s infinite;
+  transition:transform .25s ease;
+}
+.guruji-launcher:hover{ transform:scale(1.07); }
+@keyframes gurujiPulse{
+  0%{ box-shadow:0 0 0 0 rgba(76,63,224,0.45); }
+  70%{ box-shadow:0 0 0 14px rgba(76,63,224,0); }
+  100%{ box-shadow:0 0 0 0 rgba(76,63,224,0); }
+}
+.guruji-launcher .ping-dot{
+  position:absolute; top:-4px; right:-4px; width:16px; height:16px;
+  background:#FF7A30; border:2px solid #fff; border-radius:50%;
+}
+
+.guruji-tooltip{
+  position:fixed; left:92px; bottom:42px; z-index:1000;
+  background:#161636; color:#fff; padding:8px 14px; border-radius:10px;
+  font-size:13px; font-weight:600; font-family:'Inter',Arial,sans-serif;
+  white-space:nowrap; opacity:0; pointer-events:none;
+  transition:opacity .3s ease;
+}
+.guruji-tooltip.show{ opacity:1; }
+
+.guruji-panel{
+  position:fixed; left:22px; bottom:104px; z-index:1001;
+  width:340px; max-width:90vw; height:480px; max-height:70vh;
+  background:#fff; border-radius:20px; overflow:hidden;
+  box-shadow:0 24px 60px rgba(20,20,60,0.28);
+  display:flex; flex-direction:column;
+  transform:translateY(20px) scale(.96); opacity:0; pointer-events:none;
+  transition:transform .28s ease, opacity .28s ease;
+  font-family:'Inter',Arial,sans-serif;
+}
+.guruji-panel.open{ transform:translateY(0) scale(1); opacity:1; pointer-events:auto; }
+
+.guruji-head{
+  background:var(--grad-primary, linear-gradient(135deg,#4C3FE0,#7B61FF));
+  color:#fff; padding:16px 18px; display:flex; align-items:center; gap:12px;
+}
+.guruji-head .avatar{
+  width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,0.18);
+  display:flex; align-items:center; justify-content:center; font-size:22px;
+}
+.guruji-head .info{ flex:1; }
+.guruji-head .info h4{ margin:0; font-size:15px; font-family:'Poppins',sans-serif; }
+.guruji-head .info span{ font-size:11.5px; opacity:.85; display:flex; align-items:center; gap:5px; }
+.guruji-head .info span::before{ content:""; width:7px; height:7px; border-radius:50%; background:#3CF08A; display:inline-block; }
+.guruji-close{ background:none; border:none; color:#fff; font-size:20px; cursor:pointer; opacity:.85; line-height:1; }
+.guruji-close:hover{ opacity:1; }
+
+.guruji-body{
+  flex:1; overflow-y:auto; padding:16px; background:#F6F7FD;
+  display:flex; flex-direction:column; gap:10px;
+}
+.g-msg{ max-width:84%; padding:10px 13px; border-radius:14px; font-size:13.5px; line-height:1.5; animation:gMsgIn .25s ease; white-space:pre-wrap; }
+@keyframes gMsgIn{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:translateY(0); } }
+.g-msg.bot{ background:#fff; color:#161636; border-bottom-left-radius:4px; align-self:flex-start; box-shadow:0 4px 12px rgba(27,20,100,0.08); }
+.g-msg.user{ background:var(--grad-primary, linear-gradient(135deg,#4C3FE0,#7B61FF)); color:#fff; border-bottom-right-radius:4px; align-self:flex-end; }
+
+.g-quick{ display:flex; flex-wrap:wrap; gap:6px; padding:0 16px 12px; }
+.g-quick button{
+  background:#fff; border:1.5px solid #E5E5F2; color:#4C3FE0;
+  font-size:12px; font-weight:700; padding:7px 12px; border-radius:999px;
+  cursor:pointer; transition:.2s;
+}
+.g-quick button:hover{ background:#4C3FE0; color:#fff; border-color:#4C3FE0; }
+
+.guruji-typing{ display:flex; gap:4px; padding:10px 13px; background:#fff; border-radius:14px; align-self:flex-start; width:fit-content; box-shadow:0 4px 12px rgba(27,20,100,0.08); }
+.guruji-typing span{ width:6px; height:6px; border-radius:50%; background:#9B95E8; animation:gTyping 1.2s infinite; }
+.guruji-typing span:nth-child(2){ animation-delay:.2s; }
+.guruji-typing span:nth-child(3){ animation-delay:.4s; }
+@keyframes gTyping{ 0%,60%,100%{ transform:translateY(0); opacity:.5; } 30%{ transform:translateY(-4px); opacity:1; } }
+
+.guruji-input-row{ display:flex; gap:8px; padding:12px; border-top:1px solid #EEEEF6; background:#fff; }
+.guruji-input-row input{
+  flex:1; border:1.5px solid #E5E5F2; border-radius:999px; padding:10px 16px;
+  font-size:13.5px; outline:none;
+}
+.guruji-input-row input:focus{ border-color:#4C3FE0; }
+.guruji-input-row button{
+  width:40px; height:40px; border-radius:50%; border:none; cursor:pointer;
+  background:var(--grad-cta, linear-gradient(135deg,#FF7A30,#FF5E1A)); color:#fff; font-size:16px;
+  display:flex; align-items:center; justify-content:center;
+}
+
+@media (max-width:480px){
+  .guruji-panel{ left:12px; right:12px; width:auto; bottom:96px; }
+  .guruji-tooltip{ display:none; }
+}

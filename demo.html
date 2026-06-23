@@ -1,0 +1,228 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Free Demo | Era of Education</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/guruji.css">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.stage {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+  background: url("https://images.unsplash.com/photo-1600195077909-46e573870d99") no-repeat center center/cover;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+}
+
+.container {
+  position: relative;
+  width: 420px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  overflow: hidden;
+  animation: slideIn 1s ease;
+}
+
+@keyframes slideIn {
+  from {transform: translateY(100px); opacity:0;}
+  to {transform: translateY(0); opacity:1;}
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #ff5f6d;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff3b4d;
+}
+
+.success {
+  text-align: center;
+  display: none;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+.slide-out {
+  animation: slideOut 1s forwards;
+}
+
+@keyframes slideOut {
+  to {transform: translateX(-500px); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="nav-container">
+    <a href="index.html" class="logo"><img src="images/Logo.PNG" alt="Era of Education Logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="student.html">Students</a>
+      <a href="teacher.html">Teachers</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="demo.html" class="nav-cta">Book Free Demo</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="stage">
+<div class="overlay"></div>
+
+<div class="container" id="formBox">
+
+  <!-- FORM 1 -->
+  <form id="demoForm">
+    <span class="pill-badge pill-yellow">🎁 100% Free • No Hidden Charges</span>
+    <h2>Book Free Demo Class</h2>
+
+    <input type="text" id="demoName" placeholder="Student Name" required>
+    <input type="text" id="demoClass" placeholder="Class (1 to 12)" required>
+    <input type="text" id="demoSchool" placeholder="School Name" required>
+    <input type="tel" id="demoMobile" placeholder="Mobile Number" required>
+    <textarea id="demoAddress" placeholder="Address"></textarea>
+
+    <button type="submit">Submit Demo Request</button>
+  </form>
+
+  <!-- SUCCESS MESSAGE -->
+  <div class="success" id="successMsg">
+    <h2>✅ Successfully Submitted</h2>
+    <p>Our team will contact you shortly.</p>
+    <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;">
+      <button onclick="showNextForm()">Book Another Demo</button>
+      <button id="demoOpenWhatsapp" style="background:#25D366;border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;">Open WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- FORM 2 -->
+  <form id="nextForm" style="display:none;">
+    <h2>Book Next Demo</h2>
+
+    <input type="text" id="nextName" placeholder="Student Name" required>
+    <input type="tel" id="nextMobile" placeholder="Mobile Number" required>
+    <input type="text" id="nextSubject" placeholder="Preferred Subject" required>
+
+    <button type="submit">Submit Again</button>
+  </form>
+
+</div>
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/guruji.js"></script>
+<script>
+const demoForm = document.getElementById("demoForm");
+const successMsg = document.getElementById("successMsg");
+const nextForm = document.getElementById("nextForm");
+const formBox = document.getElementById("formBox");
+
+demoForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const message =
+`🎓 Era of Education - Free Demo Class Request
+
+Name: ${document.getElementById("demoName").value}
+Class: ${document.getElementById("demoClass").value}
+School: ${document.getElementById("demoSchool").value}
+Mobile: ${document.getElementById("demoMobile").value}
+Address: ${document.getElementById("demoAddress").value}
+
+Please contact this student to schedule the demo class.`;
+
+  formBox.classList.add("slide-out");
+
+  setTimeout(() => {
+    demoForm.style.display = "none";
+    successMsg.style.display = "block";
+    formBox.classList.remove("slide-out");
+    window.__lastWhatsAppMessage = message;
+    openWhatsApp(message);
+  }, 1000);
+});
+
+function showNextForm() {
+  successMsg.style.display = "none";
+  nextForm.style.display = "block";
+}
+
+nextForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const message =
+`🎓 Era of Education - Another Demo Class Request
+
+Name: ${document.getElementById("nextName").value}
+Mobile: ${document.getElementById("nextMobile").value}
+Preferred Subject: ${document.getElementById("nextSubject").value}
+
+Please contact this student to schedule the demo class.`;
+
+  openWhatsApp(message);
+  nextForm.reset();
+});
+
+// Fallback button if popup is blocked
+const demoOpenBtn = document.getElementById('demoOpenWhatsapp');
+if (demoOpenBtn) demoOpenBtn.addEventListener('click', () => {
+  const msg = window.__lastWhatsAppMessage || 'Hi, I want to book a demo with Era of Education.';
+  openWhatsApp(msg);
+});
+</script>
+
+</body>
+</html>
