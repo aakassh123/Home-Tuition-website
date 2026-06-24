@@ -64,6 +64,8 @@
       keywords: ["location", "city", "where", "area", "gorakhpur", "available in"],
       reply:
         "We're based in Gorakhpur and currently serve 10+ cities. Tell me your city and I'll let you know if home tuition is available there — or just ask on WhatsApp for the fastest answer.",
+      reply_hi:
+        "हम गोरखपुर में स्थित हैं और वर्तमान में कई शहरों में सेवाएँ देते हैं। कृपया अपना शहर बताइए — मैं आपको बताऊंगा कि क्या होम ट्यूशन उपलब्ध है।",
     },
     {
       keywords: ["online", "home tuition", "offline", "in person", "at home"],
@@ -89,8 +91,30 @@
       keywords: ["who are you", "what are you", "your name", "guruji"],
       reply:
         "I'm Guruji 🪔 — Era of Education's learning buddy! I can help with questions about home tuition, study tips, and a bit of friendly support when school feels stressful. How can I help today?",
+      reply_hi:
+        "मैं गुरुजी 🪔 हूँ — Era of Education का आपका पढ़ाई साथी! मैं होम ट्यूशन, पढ़ाई के सुझाव और सहायक समर्थन में मदद कर सकता हूँ। मैं कैसे मदद करूँ?",
     },
   ];
+
+  /* ---------------- GORAKHPUR SPECIFIC INFO ---------------- */
+  const GKP = {
+    schools: [
+      "St. Joseph Inter College",
+      "Jeevan Jyoti School",
+      "Central Hindu School",
+      "DAV Public School",
+    ],
+    colleges: [
+      "Deen Dayal Upadhyaya Gorakhpur University",
+      "Shri Ramswaroop Memorial College",
+      "MKP P.G. College",
+    ],
+    coaching_centers: ["Aakash Coaching, Gorakhpur", "Allen Institute (local branch)", "Local Maths & Science Tutors"],
+    info:
+      "Gorakhpur is an educational hub in eastern Uttar Pradesh with many schools, colleges and coaching centres. For exact locations or distances, tell me the place name and I can help estimate or open a Google search.",
+    info_hi:
+      "गोरखपुर पूर्वी उत्तर प्रदेश का एक शैक्षिक केंद्र है, जहाँ कई स्कूल, कॉलेज और कोचिंग सेंटर हैं। सटीक जानकारी के लिए स्थान बताइए — मैं दूरी का अनुमान लगा कर या गूगल खोज खोल कर मदद कर सकता हूँ।",
+  };
 
   /* ---------------- 3. STUDY HELP (light technical support) ---------------- */
   const STUDY_HELP = [
@@ -138,9 +162,39 @@
   /* ---------------- 5. GREETINGS / SMALL TALK ---------------- */
   const GREETINGS = ["hi", "hello", "hey", "namaste", "good morning", "good evening", "good afternoon"];
 
+  /* ---------------- 6. SESSION / LEAD FLOW STATE ---------------- */
+  let leadState = null; // { step: number, data: {} , lang: 'hi'|'en' }
+
+  /* ---------------- Helpers: language, math, date ---------------- */
+  function isHindi(text) {
+    return /[\u0900-\u097F]/.test(text) || /namaste|namaskar|dhanyavaad|धन्यवाद|नमस्ते/i.test(text);
+  }
+
+  function numericListFromText(text) {
+    const parts = text.replace(/[^0-9.,\- ]+/g, " ").split(/[ ,]+/).map((s) => s.trim()).filter(Boolean);
+    return parts.map((p) => Number(p)).filter((n) => !Number.isNaN(n));
+  }
+
+  function safeEval(expr) {
+    // allow only numbers, spaces and +-*/().% characters
+    if (!/^[0-9+\-*/(). %]+$/.test(expr)) return null;
+    try {
+      // eslint-disable-next-line no-new-func
+      return Function('return (' + expr + ')')();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function formatNumber(n) {
+    if (Number.isInteger(n)) return String(n);
+    return String(Number(n.toFixed(6)).toString());
+  }
+
   /* ---------------- CORE: generate a reply ---------------- */
   function getReply(rawText) {
     const text = rawText.toLowerCase().trim();
+    const lang = isHindi(rawText) ? 'hi' : 'en';
 
     // 1) Crisis check — always first, always answered with care.
     if (matchesAny(text, CRISIS_PATTERNS)) {
@@ -160,12 +214,147 @@
 
     // 3) Greetings
     if (GREETINGS.some((g) => text === g || text.startsWith(g + " ") || text.startsWith(g + "!"))) {
-      return "Namaste! 🙏 I'm Guruji, your learning buddy at Era of Education. Ask me about fees, registration, subjects, study tips — or just say what's on your mind.";
+      return lang === 'hi'
+        ? "नमस्ते! 🙏 मैं गुरुजी हूँ — Era of Education का आपका पढ़ाई साथी। फीस, रजिस्ट्रेशन, विषय या पढ़ाई के सुझाव पूछिए।"
+        : "Namaste! 🙏 I'm Guruji, your learning buddy at Era of Education. Ask me about fees, registration, subjects, study tips — or just say what's on your mind.";
+    }
+
+    // Thanks / Bye
+    if (/\b(thank|thanks|thank you|dhanyavaad|धन्यवाद)\b/.test(text)) {
+      return lang === 'hi' ? 'आपका धन्यवाद! 😊 क्या मैं और कुछ मदद कर सकता/सकती हूँ?' : "You're welcome! 😊 Can I help with anything else?";
+    }
+    if (/\b(bye|goodbye|see you|namaste bye|अलविदा|बाय)\b/.test(text)) {
+      return lang === 'hi' ? 'अलविदा! शुभकामनाएँ — अगर कुछ चाहिए तो वापस आइए।' : "Goodbye! Best wishes — come back anytime.";
+    }
+
+    // If currently inside lead collection flow, handle steps
+    if (leadState) {
+      const step = leadState.step;
+      const v = rawText.trim();
+      if (step === 0) {
+        leadState.data.name = v;
+        leadState.step = 1;
+        return leadState.lang === 'hi' ? 'कक्षा बताइए (उदा. Class 10)' : 'Please tell the Class (e.g. Class 10)';
+      }
+      if (step === 1) {
+        leadState.data.class = v;
+        leadState.step = 2;
+        return leadState.lang === 'hi' ? 'किस विषय के लिए ट्यूटर चाहिए?' : 'Which Subject do you need the tutor for?';
+      }
+      if (step === 2) {
+        leadState.data.subject = v;
+        leadState.step = 3;
+        return leadState.lang === 'hi' ? 'आपका स्थान/एरिया बताइए (उदा. Gorakhpur)' : 'Please share your Location (area/city)';
+      }
+      if (step === 3) {
+        leadState.data.location = v;
+        leadState.step = 4;
+        return leadState.lang === 'hi' ? 'अपना पसंदीदा समय बताइए (सुबह/शाम/शाम 6-8)' : 'Preferred Timing (morning/evening or e.g. 6-8pm)';
+      }
+      if (step === 4) {
+        leadState.data.timing = v;
+        leadState.step = 5;
+        return leadState.lang === 'hi' ? 'कृपया संपर्क नंबर भेजें' : 'Please provide a Contact Number';
+      }
+      if (step === 5) {
+        leadState.data.contact = v;
+        const saved = Object.assign({}, leadState.data);
+        leadState = null;
+        // TODO: could send to server or WhatsApp; for now, open WhatsApp prefilled message optionally
+        return (
+          (lang === 'hi'
+            ? 'धन्यवाद। आपकी जानकारी प्राप्त हो गई है। हमारी टीम शीघ्र ही आपसे संपर्क करेगी।'
+            : 'Thank you. Your request has been received successfully. Our team will contact you shortly.') +
+          '\n\n' +
+          (lang === 'hi' ? 'हम आपकी जानकारी सुरक्षित रखेंगे।' : "We'll keep your details secure.")
+        );
+      }
+    }
+
+    // 3.5) Math and conversions: detect math expressions
+    // percentage: "what is 20% of 200"
+    const percMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*of\s*(\d+(?:\.\d+)?)/i);
+    if (percMatch) {
+      const p = Number(percMatch[1]);
+      const of = Number(percMatch[2]);
+      const res = (p / 100) * of;
+      return lang === 'hi' ? `परिणाम: ${formatNumber(res)}` : `Result: ${formatNumber(res)}`;
+    }
+
+    // average: "average of 2,3,4"
+    if (/average of/i.test(text) || /mean of/i.test(text)) {
+      const nums = numericListFromText(text);
+      if (nums.length) {
+        const avg = nums.reduce((a, b) => a + b, 0) / nums.length;
+        return lang === 'hi' ? `औसत: ${formatNumber(avg)}` : `Average: ${formatNumber(avg)}`;
+      }
+    }
+
+    // simple expression e.g. "calculate 2+3*5" or "what is 2 * (3+4)"
+    const exprMatch = text.match(/(?:calculate|what is|solve|=)?\s*([0-9+\-*/(). %]+)$/i);
+    if (exprMatch) {
+      const expr = exprMatch[1].replace(/×/g, '*').replace(/÷/g, '/');
+      const val = safeEval(expr);
+      if (val !== null) return lang === 'hi' ? `परिणाम: ${formatNumber(val)}` : `Result: ${formatNumber(val)}`;
+    }
+
+    // simple interest: "simple interest on 1000 rate 5 time 2" or "si 1000 5 2"
+    const siMatch = text.match(/simple interest(?: on)?\s*(\d+(?:\.\d+)?)\s*(?:rate\s*)?(\d+(?:\.\d+)?)\s*(?:time|years?)\s*(\d+(?:\.\d+)?)/i);
+    if (siMatch) {
+      const p = Number(siMatch[1]), r = Number(siMatch[2]), t = Number(siMatch[3]);
+      const si = (p * r * t) / 100;
+      return lang === 'hi' ? `सरल ब्याज: ${formatNumber(si)}` : `Simple Interest: ${formatNumber(si)}`;
+    }
+
+    // compound interest: "compound interest principal 1000 rate 5 time 2" => A = P(1+r/100)^t
+    const ciMatch = text.match(/compound interest(?: on| for)?\s*(?:principal\s*)?(\d+(?:\.\d+)?)\s*(?:rate\s*)?(\d+(?:\.\d+)?)\s*(?:time|years?)\s*(\d+(?:\.\d+)?)/i);
+    if (ciMatch) {
+      const p = Number(ciMatch[1]), r = Number(ciMatch[2]), t = Number(ciMatch[3]);
+      const a = p * Math.pow(1 + r / 100, t);
+      const ci = a - p;
+      return lang === 'hi' ? `चक्रवृद्धि ब्याज कुल: ${formatNumber(a)}, ब्याज: ${formatNumber(ci)}` : `Amount: ${formatNumber(a)}, Interest: ${formatNumber(ci)}`;
+    }
+
+    // age calculation: "age of someone born on 2005-05-12" or "i was born on 12/05/2005"
+    const dobMatch = text.match(/(born|birth|born on)\s*(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}|\d{4}[\-]\d{2}[\-]\d{2}|\d{4})/i);
+    if (dobMatch) {
+      const d = dobMatch[2];
+      let dt;
+      if (/^\d{4}$/.test(d)) dt = new Date(Number(d), 0, 1);
+      else dt = new Date(d.replace(/\/(\d+)\/(\d+)/, '$2/$1'));
+      if (!isNaN(dt)) {
+        const diff = Date.now() - dt.getTime();
+        const age = Math.floor(diff / 31557600000);
+        return lang === 'hi' ? `आयु: ${age} वर्ष` : `Age: ${age} years`;
+      }
+    }
+
+    // unit conversions (simple)
+    const kmToMiles = text.match(/(\d+(?:\.\d+)?)\s*(km|kilometer|kilometre)s?\s*(to|in?)\s*(miles|mile)/i);
+    if (kmToMiles) {
+      const v = Number(kmToMiles[1]);
+      const res = v * 0.621371;
+      return lang === 'hi' ? `${v} किलोमीटर ≈ ${formatNumber(res)} मील` : `${v} km ≈ ${formatNumber(res)} miles`;
+    }
+
+    // Gorakhpur-specific queries
+    if (/gorakhpur/.test(text) || /गोरखपुर/.test(rawText)) {
+      if (/school|college|coaching|कोचिंग|स्कूल|कॉलेज/.test(text) || /school|college|coaching/.test(text)) {
+        const list = (GKP.schools.concat(GKP.colleges, GKP.coaching_centers)).join('\n- ');
+        return lang === 'hi' ? `${GKP.info_hi}\n\nकुछ संस्थाएँ:\n- ${list}` : `${GKP.info}\n\nSome institutions:\n- ${list}`;
+      }
+      return lang === 'hi' ? GKP.info_hi : GKP.info;
+    }
+
+    // Lead generation intent: user wants a tutor
+    if (/need a tutor|want a tutor|looking for tutor|hire tutor|tutor for|tutor required|ट्यूटर|ट्यूटोर/i.test(text)) {
+      leadState = { step: 0, data: {}, lang };
+      return lang === 'hi' ? 'ज़रूर — कृपया विद्यार्थी का नाम बताइए।' : 'Sure — please tell the Student Name.';
     }
 
     // 4) Knowledge base (home tuition FAQs)
     for (const item of KB) {
-      if (matchesAny(text, item.keywords)) return item.reply;
+      if (matchesAny(text, item.keywords)) return lang === 'hi' && item.reply_hi ? item.reply_hi : item.reply;
     }
 
     // 5) Study help

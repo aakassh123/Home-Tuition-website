@@ -189,6 +189,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="tel:"]').forEach(a => {
       a.href = 'tel:7289053560';
     });
+
+    // Footer subscribe button: validate email and open WhatsApp to notify team
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    const subscribeEmail = document.getElementById('subscribeEmail');
+    if (subscribeBtn && subscribeEmail) {
+      subscribeBtn.addEventListener('click', (e) => {
+        const email = subscribeEmail.value.trim();
+        const simpleEmailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+        if (!simpleEmailRe.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        const msg = `Subscribe Request from ${email} — please add to newsletter.`;
+        openWhatsApp(msg);
+      });
+    }
   } catch (e) {
     // safe-guard: do nothing on older browsers
   }

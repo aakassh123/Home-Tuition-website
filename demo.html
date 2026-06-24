@@ -90,134 +90,134 @@ button:hover {
 }
 
 .slide-out {
-  animation: slideOut 1s forwards;
-}
+  <!-- Footer Start -->
+  <footer style="
+  background:linear-gradient(180deg,#000000,#0b0b0b,#000000);
+  color:#dcdcdc;
+  padding:50px 70px 25px;
+  font-family:'Segoe UI',Arial,sans-serif;
+  box-shadow:0 -10px 30px rgba(0,0,0,0.8);
+  ">    
 
-@keyframes slideOut {
-  to {transform: translateX(-500px); opacity:0;}
-}
-</style>
-</head>
+    <!-- TOP BAR -->
+    <div style="
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:25px;
+    margin-bottom:30px;
+    ">
+    
+      <h2 style="color:#ffffff;margin:0;font-weight:600;">
+        Stay Updated with Era of Education
+      </h2>
 
-<body>
+      <div style="display:flex;box-shadow:0 0 20px rgba(0,255,255,0.2);border-radius:30px;overflow:hidden;">
+        <input id="subscribeEmail" type="email" placeholder="Enter your email"
+          style="
+          padding:12px 18px;
+          width:230px;
+          border:none;
+          outline:none;
+          font-size:14px;">
+        <button id="subscribeBtn"
+          style="
+          padding:12px 20px;
+          background:linear-gradient(135deg,#00c6ff,#0072ff);
+          border:none;
+          color:#fff;
+          cursor:pointer;
+          font-weight:600;">
+          Subscribe
+        </button>
+      </div>
 
-<header class="site-header" id="siteHeader">
-  <div class="nav-container">
-    <a href="index.html" class="logo"><img src="images/Logo.PNG" alt="Era of Education Logo"></a>
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="student.html">Students</a>
-      <a href="teacher.html">Teachers</a>
-      <a href="about.html">About</a>
-      <a href="team.html">Team</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <a href="demo.html" class="nav-cta">Book Free Demo</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<div class="stage">
-<div class="overlay"></div>
-
-<div class="container" id="formBox">
-
-  <!-- FORM 1 -->
-  <form id="demoForm">
-    <span class="pill-badge pill-yellow">🎁 100% Free • No Hidden Charges</span>
-    <h2>Book Free Demo Class</h2>
-
-    <input type="text" id="demoName" placeholder="Student Name" required>
-    <input type="text" id="demoClass" placeholder="Class (1 to 12)" required>
-    <input type="text" id="demoSchool" placeholder="School Name" required>
-    <input type="tel" id="demoMobile" placeholder="Mobile Number" required>
-    <textarea id="demoAddress" placeholder="Address"></textarea>
-
-    <button type="submit">Submit Demo Request</button>
-  </form>
-
-  <!-- SUCCESS MESSAGE -->
-  <div class="success" id="successMsg">
-    <h2>✅ Successfully Submitted</h2>
-    <p>Our team will contact you shortly.</p>
-    <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;">
-      <button onclick="showNextForm()">Book Another Demo</button>
-      <button id="demoOpenWhatsapp" style="background:#25D366;border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;">Open WhatsApp</button>
+      <div>
+        <span style="font-size:13px;color:#9a9a9a;">Call Anytime</span>
+        <h3 style="color:#00e5ff;margin:5px 0 0;">+91 72890 53560</h3>
+      </div>
     </div>
-  </div>
 
-  <!-- FORM 2 -->
-  <form id="nextForm" style="display:none;">
-    <h2>Book Next Demo</h2>
+    <hr style="border:0;height:1px;background:linear-gradient(to right,transparent,#333,transparent);margin:35px 0;">
 
-    <input type="text" id="nextName" placeholder="Student Name" required>
-    <input type="tel" id="nextMobile" placeholder="Mobile Number" required>
-    <input type="text" id="nextSubject" placeholder="Preferred Subject" required>
+    <!-- MAIN FOOTER -->
+    <div style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:35px;
+    ">
 
-    <button type="submit">Submit Again</button>
-  </form>
+      <!-- BRAND -->
+      <div>
+        <h3 style="color:#00e5ff;margin-bottom:12px;">Era of Education</h3>
+        <p style="line-height:1.8;">
+          Taramandal Road, Gorakhpur<br>
+          📞 <a href="tel:7289053560" style="color:inherit;text-decoration:none;">+91 72890 53560</a><br>
+          ✉ <a href="mailto:eraofedu@gmail.com" style="color:inherit;text-decoration:none;">eraofedu@gmail.com</a>
+        </p>
 
-</div>
-</div>
+        <div style="margin-top:15px;">
+          <a href="https://facebook.com/eraofeducation" target="_blank" rel="noopener noreferrer" style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;margin-right:8px;text-decoration:none;">f</a>
+          <a href="https://linkedin.com/company/eraofeducation" target="_blank" rel="noopener noreferrer" style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;margin-right:8px;text-decoration:none;">in</a>
+          <a href="https://twitter.com/eraofedu" target="_blank" rel="noopener noreferrer" style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;margin-right:8px;text-decoration:none;">t</a>
+          <a href="https://instagram.com/eraofeducation" target="_blank" rel="noopener noreferrer" style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;text-decoration:none;">ig</a>
+        </div>
+      </div>
 
-<script src="js/script.js"></script>
-<script src="js/guruji.js"></script>
-<script>
-const demoForm = document.getElementById("demoForm");
-const successMsg = document.getElementById("successMsg");
-const nextForm = document.getElementById("nextForm");
-const formBox = document.getElementById("formBox");
+      <!-- SERVICES -->
+      <div>
+        <h4 style="color:#ffffff;margin-bottom:14px;">Services</h4>
+        <p><a href="student.html" style="color:inherit;text-decoration:none;">Home Tuition</a></p>
+        <p><a href="contact.html" style="color:inherit;text-decoration:none;">Online Classes</a></p>
+        <p><a href="demo.html" style="color:inherit;text-decoration:none;">Free Demo</a></p>
+        <p><a href="contact.html" style="color:inherit;text-decoration:none;">Career Guidance</a></p>
+      </div>
 
-demoForm.addEventListener("submit", function(e) {
-  e.preventDefault();
+      <!-- QUICK LINKS -->
+      <div>
+        <h4 style="color:#ffffff;margin-bottom:14px;">Quick Links</h4>
+        <p><a href="index.html" style="color:inherit;text-decoration:none;">Home</a></p>
+        <p><a href="student.html" style="color:inherit;text-decoration:none;">Students</a></p>
+        <p><a href="teacher.html" style="color:inherit;text-decoration:none;">Teachers</a></p>
+        <p><a href="contact.html" style="color:inherit;text-decoration:none;">Contact</a></p>
+      </div>
 
-  const message =
-`🎓 Era of Education - Free Demo Class Request
+      <!-- LEGAL -->
+      <div>
+        <h4 style="color:#ffffff;margin-bottom:14px;">Privacy & Info</h4>
+        <p><a href="about.html" style="color:inherit;text-decoration:none;">Terms & Conditions</a></p>
+        <p><a href="about.html#privacy" style="color:inherit;text-decoration:none;">Privacy Policy</a></p>
+        <p><a href="contact.html" style="color:inherit;text-decoration:none;">Get in Touch</a></p>
+        <p><a href="teacher.html" style="color:inherit;text-decoration:none;">Become a Partner</a></p>
+      </div>
 
-Name: ${document.getElementById("demoName").value}
-Class: ${document.getElementById("demoClass").value}
-School: ${document.getElementById("demoSchool").value}
-Mobile: ${document.getElementById("demoMobile").value}
-Address: ${document.getElementById("demoAddress").value}
+    </div>
 
-Please contact this student to schedule the demo class.`;
+    <!-- BOTTOM -->
+    <div style="
+    text-align:center;
+    margin-top:40px;
+    padding-top:20px;
+    font-size:13px;
+    color:#8a8a8a;
+    border-top:1px solid #222;
+    ">
+      ✨ Simple is Powerful • © 2026 Era of Education. All Rights Reserved
+    </div>
 
-  formBox.classList.add("slide-out");
+  </footer>
 
-  setTimeout(() => {
-    demoForm.style.display = "none";
-    successMsg.style.display = "block";
-    formBox.classList.remove("slide-out");
-    window.__lastWhatsAppMessage = message;
-    openWhatsApp(message);
-  }, 1000);
-});
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
 
-function showNextForm() {
-  successMsg.style.display = "none";
-  nextForm.style.display = "block";
-}
+  <script src="js/script.js"></script>
+  <script src="js/guruji.js"></script>
 
-nextForm.addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const message =
-`🎓 Era of Education - Another Demo Class Request
-
-Name: ${document.getElementById("nextName").value}
-Mobile: ${document.getElementById("nextMobile").value}
-Preferred Subject: ${document.getElementById("nextSubject").value}
-
-Please contact this student to schedule the demo class.`;
-
-  openWhatsApp(message);
-  nextForm.reset();
-});
-
-// Fallback button if popup is blocked
-const demoOpenBtn = document.getElementById('demoOpenWhatsapp');
+  </body>
+  </html>
 if (demoOpenBtn) demoOpenBtn.addEventListener('click', () => {
   const msg = window.__lastWhatsAppMessage || 'Hi, I want to book a demo with Era of Education.';
   openWhatsApp(msg);
