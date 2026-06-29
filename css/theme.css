@@ -109,7 +109,8 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
   }
   .nav-links.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
   .nav-links a{ width:100%; padding:12px 0; border-bottom:1px solid #f0f0f7; }
-  .nav-cta{ display:none; }
+  /* show primary CTA on mobile for easier access */
+  .nav-cta{ display:inline-block; padding:8px 14px; font-size:13px; }
   .menu-toggle{ display:flex; }
 }
 
@@ -234,8 +235,8 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
   .stats-grid{ grid-template-columns:repeat(2,1fr); }
 }
 
-/* Temporary blur utility for images (easy to remove later) */
-.blur-now{ filter: blur(3px); transition:filter .25s ease; }
+/* Temporary blur utility for images (removed by default for clarity) */
+.blur-now{ filter: none; transition:filter .25s ease; }
 
 /* ====================================================================
    Enforce consistent navbar appearance across all pages
@@ -252,4 +253,31 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
   /* ensure mobile menu link appearance stays consistent */
   .nav-links a{ color:var(--text-dark) !important; }
   .nav-links a.active{ color:var(--indigo-600) !important; }
+}
+
+/* ================= DEMO BOOKING MODAL ================= */
+.demo-modal{ position:fixed; top:0; left:0; right:0; bottom:0; display:none; align-items:center; justify-content:center; z-index:1200; }
+.demo-modal.show{ display:flex; }
+.demo-modal-backdrop{ position:absolute; inset:0; background:rgba(10,10,10,0.6); backdrop-filter:blur(4px); }
+.demo-modal-dialog{ position:relative; width:92%; max-width:520px; background:var(--bg-card); border-radius:14px; padding:20px 20px 18px; box-shadow:var(--shadow-card); z-index:2; }
+.demo-modal-dialog h3{ margin:0 0 8px; font-size:20px; }
+.demo-modal-dialog p{ margin:0 0 14px; color:var(--text-mute); font-size:14px; }
+.demo-modal-close{ position:absolute; right:12px; top:10px; background:transparent; border:none; font-size:20px; cursor:pointer; color:var(--text-mute); }
+.demo-modal form{ display:flex; flex-direction:column; gap:10px; }
+.demo-modal input[type="text"], .demo-modal input[type="tel"]{ padding:12px 14px; border-radius:10px; border:1px solid #eee; font-size:15px; outline:none; }
+.demo-modal .actions{ display:flex; justify-content:flex-end; gap:8px; margin-top:6px; }
+.demo-modal .btn{ background:var(--grad-cta); color:#fff; border:none; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer; }
+.demo-modal .btn.secondary{ background:#f0f0f5; color:var(--text-dark); }
+
+@media (max-width:700px){
+  body{ font-size:15px; }
+  .nav-container{ padding:12px 18px; }
+  .nav-links a{ font-size:16px !important; padding:14px 0 !important; }
+  .nav-cta{ padding:12px 18px !important; font-size:15px !important; }
+  .hero-text h1{ font-size:26px; }
+}
+
+/* increase touch targets on small devices */
+@media (max-width:480px){
+  .nav-cta, .demo-btn, .btn { padding:14px 18px !important; }
 }

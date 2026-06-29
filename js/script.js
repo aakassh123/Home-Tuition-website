@@ -11,6 +11,9 @@
 /* ---------- WHATSAPP CONFIG ---------- */
 /* Change this ONE number to update WhatsApp on the entire website */
 const WHATSAPP_NUMBER = "917289053560"; // country code + number, no + or spaces
+/* Optional: set this to your Google Apps Script web app URL or any server endpoint
+  Example: https://script.google.com/macros/s/AKfycb.../exec */
+const GOOGLE_SHEETS_ENDPOINT = "";
 
 /**
  * Opens WhatsApp with a pre-filled message.
@@ -207,5 +210,128 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } catch (e) {
     // safe-guard: do nothing on older browsers
+  }
+});
+
+// Build an in-page modal form for Demo booking and submit to WhatsApp
+document.addEventListener('DOMContentLoaded', () => {
+  // create modal HTML
+  if (!document.getElementById('demoModal')) {
+    const modal = document.createElement('div');
+    modal.id = 'demoModal';
+    modal.className = 'demo-modal';
+    modal.innerHTML = `
+      <div class="demo-modal-backdrop" data-role="backdrop"></div>
+      <div class="demo-modal-dialog" role="dialog" aria-modal="true">
+        <button class="demo-modal-close" aria-label="Close">×</button>
+        <h3>Book Your Free Demo</h3>
+        <p>Fill the details below and we'll message you on WhatsApp to schedule the demo.</p>
+        <form id="demoForm">
+          <input type="text" name="name" placeholder="Full name" autocomplete="name">
+          <input type="text" name="class" placeholder="Class (e.g. Class 10)">
+          <input type="text" name="subject" placeholder="Subject (e.g. Maths)">
+          <input type="text" name="location" placeholder="City / Area">
+          <input type="tel" name="phone" placeholder="WhatsApp number (with country code) e.g. 91xxxxxxxxxx">
+          <div class="actions">
+            <button type="button" class="btn secondary" id="demoCancel">Cancel</button>
+            <button type="submit" class="btn" id="demoSubmit">Send via WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const openModal = () => modal.classList.add('show');
+    const closeModal = () => modal.classList.remove('show');
+
+    // open modal when clicking header/demo CTAs
+    document.querySelectorAll('.nav-cta, .demo-btn').forEach((el) => {
+      el.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        openModal();
+      });
+    });
+
+    // close handlers
+    modal.querySelector('[data-role="backdrop"]').addEventListener('click', closeModal);
+    modal.querySelector('.demo-modal-close').addEventListener('click', closeModal);
+    document.getElementById('demoCancel').addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // form submit -> open WhatsApp
+    const form = document.getElementById('demoForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name = (fd.get('name') || '').toString().trim();
+      const cls = (fd.get('class') || '').toString().trim();
+      const subject = (fd.get('subject') || '').toString().trim();
+      const location = (fd.get('location') || '').toString().trim();
+      const phone = (fd.get('phone') || '').toString().trim();
+
+      // basic validation for phone (digits, min 7)
+      const digits = phone.replace(/[^0-9+]/g, '');
+      if (digits.length < 7) {
+        alert('Please enter a valid WhatsApp number including country code.');
+        return;
+      }
+
+      const lines = [];
+      lines.push('Free Demo Request');
+      if (name) lines.push(`Name: ${name}`);
+      if (cls) lines.push(`Class: ${cls}`);
+      if (subject) lines.push(`Subject: ${subject}`);
+      if (location) lines.push(`Location: ${location}`);
+      lines.push(`Contact: ${phone}`);
+      lines.push('Please contact to schedule the demo.');
+
+      const message = encodeURIComponent(lines.join('\n'));
+
+      // send to configured endpoint (if provided)
+      if (typeof GOOGLE_SHEETS_ENDPOINT !== 'undefined' && GOOGLE_SHEETS_ENDPOINT) {
+        try {
+          // If endpoint looks like Google Apps Script, submit via a hidden form (avoids CORS)
+          if (/script.google.com/.test(GOOGLE_SHEETS_ENDPOINT)) {
+            let iframe = document.getElementById('demoFormTarget');
+            if (!iframe) {
+              iframe = document.createElement('iframe');
+              iframe.name = 'demoFormTarget';
+              iframe.id = 'demoFormTarget';
+              iframe.style.display = 'none';
+              document.body.appendChild(iframe);
+            }
+            const formPost = document.createElement('form');
+            formPost.method = 'POST';
+            formPost.action = GOOGLE_SHEETS_ENDPOINT;
+            formPost.target = 'demoFormTarget';
+            const addField = (n, v) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = n; i.value = v; formPost.appendChild(i); };
+            addField('name', name);
+            addField('class', cls);
+            addField('subject', subject);
+            addField('location', location);
+            addField('phone', phone);
+            document.body.appendChild(formPost);
+            formPost.submit();
+            setTimeout(() => formPost.remove(), 2000);
+          } else {
+            // generic endpoint: send JSON via fetch (requires CORS allowed on server)
+            fetch(GOOGLE_SHEETS_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name, class: cls, subject, location, phone, timestamp: new Date().toISOString() }),
+              mode: 'cors'
+            }).then(res => {
+              if (!res.ok) console.warn('Lead endpoint responded with status', res.status);
+            }).catch(err => console.warn('Lead endpoint error', err));
+          }
+        } catch (err) {
+          console.warn('Error sending lead to endpoint', err);
+        }
+      }
+
+      // open WhatsApp using main configured number
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+      closeModal();
+    });
   }
 });
