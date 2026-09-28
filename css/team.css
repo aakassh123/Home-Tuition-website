@@ -144,8 +144,9 @@ body {
    ========================================================= */
 
 .team-section-v2 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 28px;
   padding: 40px 24px 80px;
   max-width: 1220px;
@@ -153,23 +154,10 @@ body {
   align-items: start;
 }
 
-@media (max-width: 1100px) {
-  .team-section-v2 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    padding: 30px 20px 60px;
-  }
-}
-
-@media (max-width: 680px) {
-  .team-section-v2 {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 20px 16px 50px;
-  }
-}
-
 .team-card-v2 {
+  flex: 0 1 calc(33.333% - 20px);
+  min-width: 320px;
+  max-width: 380px;
   background: #ffffff;
   border-radius: 24px;
   border: 1px solid rgba(27, 20, 100, 0.08);
@@ -179,6 +167,25 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+@media (max-width: 1100px) {
+  .team-card-v2 {
+    flex: 0 1 calc(50% - 16px);
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 680px) {
+  .team-section-v2 {
+    gap: 22px;
+    padding: 20px 16px 50px;
+  }
+  .team-card-v2 {
+    flex: 1 1 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
 
 .team-card-v2:hover {

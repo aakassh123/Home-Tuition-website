@@ -819,7 +819,7 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
   box-shadow: var(--lux-shadow-lg);
   border: 1px solid var(--lux-card-border);
   overflow: hidden;
-  max-width: 580px;
+  max-width: 680px;
   width: 100%;
   margin: 0 auto;
   position: relative;
