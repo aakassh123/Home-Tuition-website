@@ -136,23 +136,44 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Free Home Tuition Demo Class",
-    "serviceType": "Trial Tutoring Session",
-    "provider": {
-      "@type": "EducationalOrganization",
-      "name": "Era of Education",
-      "url": "https://eraofeducation.in/",
-      "telephone": "+91-7289053560",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Taramandal Road",
-        "addressLocality": "Gorakhpur",
-        "addressRegion": "Uttar Pradesh",
-        "addressCountry": "IN"
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Free Home Tuition Demo Class",
+        "serviceType": "Trial Tutoring Session",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "Era of Education",
+          "url": "https://eraofeducation.in/",
+          "telephone": "+91-7289053560",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Taramandal Road",
+            "addressLocality": "Gorakhpur",
+            "addressRegion": "Uttar Pradesh",
+            "addressCountry": "IN"
+          }
+        },
+        "description": "Book a 100% free home tuition demo class with verified subject experts in Gorakhpur for Classes 1 to 12 across CBSE, ICSE, and UP Board."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://eraofeducation.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Book Free Demo",
+            "item": "https://eraofeducation.in/demo.html"
+          }
+        ]
       }
-    },
-    "description": "Book a 100% free home tuition demo class with verified subject experts in Gorakhpur for Classes 1 to 12 across CBSE, ICSE, and UP Board."
+    ]
   }
   </script>
 </head>

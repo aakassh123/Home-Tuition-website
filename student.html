@@ -49,27 +49,48 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Home Tuition for Students (Classes 1 to 12)",
-    "serviceType": "Educational Tutoring",
-    "provider": {
-      "@type": "EducationalOrganization",
-      "name": "Era of Education",
-      "url": "https://eraofeducation.in/",
-      "telephone": "+91-7289053560",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Taramandal Road",
-        "addressLocality": "Gorakhpur",
-        "addressRegion": "Uttar Pradesh",
-        "addressCountry": "IN"
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Home Tuition for Students (Classes 1 to 12)",
+        "serviceType": "Educational Tutoring",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "Era of Education",
+          "url": "https://eraofeducation.in/",
+          "telephone": "+91-7289053560",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Taramandal Road",
+            "addressLocality": "Gorakhpur",
+            "addressRegion": "Uttar Pradesh",
+            "addressCountry": "IN"
+          }
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Gorakhpur"
+        },
+        "description": "Personalized 1-on-1 home tuition for students of Classes 1 to 12 in Gorakhpur across CBSE, ICSE, ISC, and UP Board."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://eraofeducation.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Student Registration",
+            "item": "https://eraofeducation.in/student.html"
+          }
+        ]
       }
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": "Gorakhpur"
-    },
-    "description": "Personalized 1-on-1 home tuition for students of Classes 1 to 12 in Gorakhpur across CBSE, ICSE, ISC, and UP Board."
+    ]
   }
   </script>
 </head>

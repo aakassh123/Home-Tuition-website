@@ -49,26 +49,47 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "JobPosting",
-    "title": "Home Tutor / Private Teacher",
-    "description": "Era of Education is hiring qualified and passionate teachers for home tuition in Gorakhpur. Teach Maths, Science, English, Commerce and all subjects for Classes 1 to 12.",
-    "datePosted": "2026-09-01",
-    "employmentType": "PART_TIME",
-    "hiringOrganization": {
-      "@type": "Organization",
-      "name": "Era of Education",
-      "sameAs": "https://eraofeducation.in/",
-      "logo": "https://eraofeducation.in/images/Logo.PNG"
-    },
-    "jobLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Gorakhpur",
-        "addressRegion": "Uttar Pradesh",
-        "addressCountry": "IN"
+    "@graph": [
+      {
+        "@type": "JobPosting",
+        "title": "Home Tutor / Private Teacher",
+        "description": "Era of Education is hiring qualified and passionate teachers for home tuition in Gorakhpur. Teach Maths, Science, English, Commerce and all subjects for Classes 1 to 12.",
+        "datePosted": "2026-09-01",
+        "employmentType": "PART_TIME",
+        "hiringOrganization": {
+          "@type": "Organization",
+          "name": "Era of Education",
+          "sameAs": "https://eraofeducation.in/",
+          "logo": "https://eraofeducation.in/images/Logo.PNG"
+        },
+        "jobLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gorakhpur",
+            "addressRegion": "Uttar Pradesh",
+            "addressCountry": "IN"
+          }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://eraofeducation.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Teacher Registration",
+            "item": "https://eraofeducation.in/teacher.html"
+          }
+        ]
       }
-    }
+    ]
   }
   </script>
 </head>
