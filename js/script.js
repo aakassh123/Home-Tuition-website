@@ -334,4 +334,17 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     });
   }
+
+  /* ---------- FAQ ACCORDION (SEO / Rich Snippets) ---------- */
+  document.querySelectorAll(".faq-question").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      if (!item) return;
+      const isActive = item.classList.contains("active");
+      document.querySelectorAll(".faq-item").forEach((el) => el.classList.remove("active"));
+      if (!isActive) {
+        item.classList.add("active");
+      }
+    });
+  });
 });

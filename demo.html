@@ -1,228 +1,335 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Book Free Demo | Era of Education</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Free Home Tuition Demo Class | Era of Education Gorakhpur</title>
+  <meta name="description" content="Book a 100% free home tuition demo class with verified subject experts in Gorakhpur. Experience personalized 1-on-1 teaching at your doorstep before deciding.">
+  <meta name="keywords" content="book free demo class, home tuition demo gorakhpur, free tutor trial, hire home tutor gorakhpur, private tutor trial class">
+  <meta name="author" content="Era of Education">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://eraofeducation.in/demo.html">
+
+  <!-- Geo / Local SEO Tags -->
+  <meta name="geo.region" content="IN-UP">
+  <meta name="geo.placename" content="Gorakhpur">
+  <meta name="geo.position" content="26.7438;83.3988">
+  <meta name="ICBM" content="26.7438, 83.3988">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://eraofeducation.in/demo.html">
+  <meta property="og:title" content="Book Free Home Tuition Demo Class | Era of Education Gorakhpur">
+  <meta property="og:description" content="100% Free Demo Class at your doorstep. Verified subject teachers for CBSE, ICSE & UP Board (Classes 1-12).">
+  <meta property="og:image" content="https://eraofeducation.in/images/Logo.PNG">
+  <meta property="og:site_name" content="Era of Education">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Book Free Demo Class | Era of Education Gorakhpur">
+  <meta name="twitter:description" content="100% Free Demo Class at your doorstep. Verified subject teachers for CBSE, ICSE & UP Board (Classes 1-12).">
+  <meta name="twitter:image" content="https://eraofeducation.in/images/Logo.PNG">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/Logo.PNG">
+  <link rel="apple-touch-icon" href="images/Logo.PNG">
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/guruji.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f8fbff;
+    }
+    .stage {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 16px;
+      background: linear-gradient(135deg, rgba(27,20,100,0.85), rgba(76,63,224,0.85)), url("https://images.unsplash.com/photo-1600195077909-46e573870d99") no-repeat center center/cover;
+    }
+    .demo-card {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      background: #ffffff;
+      padding: 36px 30px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+    .demo-card h2 {
+      margin: 12px 0 6px;
+      color: var(--indigo-900);
+      font-size: 24px;
+      text-align: center;
+    }
+    .demo-card p.sub {
+      text-align: center;
+      color: var(--text-mute);
+      font-size: 14px;
+      margin: 0 0 20px;
+    }
+    .demo-card input, .demo-card textarea {
+      width: 100%;
+      padding: 13px 16px;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      border: 1px solid #dde1ea;
+      font-size: 15px;
+      font-family: inherit;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color .25s ease;
+    }
+    .demo-card input:focus, .demo-card textarea:focus {
+      border-color: var(--indigo-600);
+    }
+    .demo-card button[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      background: var(--grad-cta);
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255,94,26,0.35);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .demo-card button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(255,94,26,0.45);
+    }
+    .success-box {
+      text-align: center;
+      display: none;
+      padding: 20px 0;
+    }
+    .success-box h2 {
+      color: #0c9a7b;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 480px) {
+      .demo-card { padding: 26px 20px; }
+      .demo-card h2 { font-size: 21px; }
+    }
+  </style>
 
-.stage {
-  flex: 1;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 16px;
-  background: url("https://images.unsplash.com/photo-1600195077909-46e573870d99") no-repeat center center/cover;
-}
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Free Home Tuition Demo Class",
+    "serviceType": "Trial Tutoring Session",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Era of Education",
+      "url": "https://eraofeducation.in/",
+      "telephone": "+91-7289053560",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Taramandal Road",
+        "addressLocality": "Gorakhpur",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      }
+    },
+    "description": "Book a 100% free home tuition demo class with verified subject experts in Gorakhpur for Classes 1 to 12 across CBSE, ICSE, and UP Board."
+  }
+  </script>
+</head>
+<body>
 
-.overlay {
-  background: rgba(0,0,0,0.6);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0; left: 0;
-}
+<!-- NAVBAR -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-container">
+    <a href="index.html" class="logo"><img src="images/Logo.PNG" alt="Era of Education Logo"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="student.html">Students</a>
+      <a href="teacher.html">Teachers</a>
+      <a href="about.html">About</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="demo.html" class="nav-cta active">Book Free Demo</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-.container {
-  position: relative;
-  width: 420px;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  overflow: hidden;
-  animation: slideIn 1s ease;
-}
-
-@keyframes slideIn {
-  from {transform: translateY(100px); opacity:0;}
-  to {transform: translateY(0); opacity:1;}
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: #ff5f6d;
-  border: none;
-  color: white;
-  font-size: 18px;
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #ff3b4d;
-}
-
-.success {
-  text-align: center;
-  display: none;
-  animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-  from {opacity:0;}
-  to {opacity:1;}
-}
-
-.slide-out {
-  <!-- Footer Start -->
-  <footer style="
-  background:linear-gradient(180deg,#000000,#0b0b0b,#000000);
-  color:#dcdcdc;
-  padding:50px 70px 25px;
-  font-family:'Segoe UI',Arial,sans-serif;
-  box-shadow:0 -10px 30px rgba(0,0,0,0.8);
-  ">    
-
-    <!-- TOP BAR -->
-    <div style="
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:25px;
-    margin-bottom:30px;
-    ">
-    
-      <h2 style="color:#ffffff;margin:0;font-weight:600;">
-        Stay Updated with Era of Education
-      </h2>
-
-      <div style="display:flex;box-shadow:0 0 20px rgba(0,255,255,0.2);border-radius:30px;overflow:hidden;">
-        <input id="subscribeEmail" type="email" placeholder="Enter your email"
-          style="
-          padding:12px 18px;
-          width:230px;
-          border:none;
-          outline:none;
-          font-size:14px;">
-        <button id="subscribeBtn"
-          style="
-          padding:12px 20px;
-          background:linear-gradient(135deg,#00c6ff,#0072ff);
-          border:none;
-          color:#fff;
-          cursor:pointer;
-          font-weight:600;">
-          Subscribe
-        </button>
+<div class="stage">
+  <div class="demo-card" id="formBox">
+    <!-- DEMO FORM -->
+    <form id="demoForm">
+      <div style="text-align:center;">
+        <span class="pill-badge pill-yellow">🎁 100% Free Demo • No Obligation</span>
       </div>
+      <h2>Book Free Demo Class</h2>
+      <p class="sub">Experience verified 1-on-1 tutoring at your home</p>
 
-      <div>
-        <span style="font-size:13px;color:#9a9a9a;">Call Anytime</span>
-        <h3 style="color:#00e5ff;margin:5px 0 0;">+91 72890 53560</h3>
+      <input type="text" id="demoName" placeholder="Student Name" required>
+      <input type="text" id="demoClass" placeholder="Class (e.g. Class 8 / Class 10)" required>
+      <input type="text" id="demoSchool" placeholder="School Name" required>
+      <input type="tel" id="demoMobile" placeholder="WhatsApp / Mobile Number" required>
+      <textarea id="demoAddress" placeholder="Your Area / Address in Gorakhpur" rows="2"></textarea>
+
+      <button type="submit">Confirm Free Demo Request</button>
+    </form>
+
+    <!-- SUCCESS MESSAGE -->
+    <div class="success-box" id="successMsg">
+      <h2>✅ Request Submitted!</h2>
+      <p style="color:var(--text-mute);margin-bottom:16px;">Our team will call or WhatsApp you shortly to schedule your demo class.</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button type="button" onclick="showNextForm()" style="background:#f0f0f5;color:var(--text-dark);border:none;padding:10px 16px;border-radius:20px;font-weight:600;cursor:pointer;">Book Another</button>
+        <button type="button" id="demoOpenWhatsapp" style="background:#25D366;border:none;color:#fff;padding:10px 18px;border-radius:20px;font-weight:700;cursor:pointer;">Open WhatsApp</button>
       </div>
     </div>
 
-    <hr style="border:0;height:1px;background:linear-gradient(to right,transparent,#333,transparent);margin:35px 0;">
+    <!-- FORM 2 -->
+    <form id="nextForm" style="display:none;margin-top:10px;">
+      <h2>Book Another Demo</h2>
+      <input type="text" id="nextName" placeholder="Student Name" required>
+      <input type="tel" id="nextMobile" placeholder="Mobile Number" required>
+      <input type="text" id="nextSubject" placeholder="Preferred Subject" required>
+      <button type="submit">Submit Again</button>
+    </form>
+  </div>
+</div>
 
-    <!-- MAIN FOOTER -->
-    <div style="
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:35px;
-    ">
-
-      <!-- BRAND -->
-      <div>
-        <h3 style="color:#00e5ff;margin-bottom:12px;">Era of Education</h3>
-        <p style="line-height:1.8;">
-          Taramandal Road, Gorakhpur<br>
-          📞 <a href="tel:7289053560" style="color:inherit;text-decoration:none;">+91 72890 53560</a><br>
-          ✉ <a href="mailto:eraofedu@gmail.com" style="color:inherit;text-decoration:none;">eraofedu@gmail.com</a>
-        </p>
-
-        <div style="margin-top:15px;">
-          <a href="https://facebook.com/eraofeducation" target="_blank" rel="noopener noreferrer" style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;margin-right:8px;text-decoration:none;">f</a>
-          <a href="https://linkedin.com/company/eraofeducation" target="_blank" rel="noopener noreferrer" style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;margin-right:8px;text-decoration:none;">in</a>
-          <a href="https://twitter.com/eraofedu" target="_blank" rel="noopener noreferrer" style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;margin-right:8px;text-decoration:none;">t</a>
-          <a href="https://instagram.com/eraofeducation" target="_blank" rel="noopener noreferrer" style="display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border-radius:50%;background:#0f2027;color:#00e5ff;text-decoration:none;">ig</a>
-        </div>
-      </div>
-
-      <!-- SERVICES -->
-      <div>
-        <h4 style="color:#ffffff;margin-bottom:14px;">Services</h4>
-        <p><a href="student.html" style="color:inherit;text-decoration:none;">Home Tuition</a></p>
-        <p><a href="contact.html" style="color:inherit;text-decoration:none;">Online Classes</a></p>
-        <p><a href="demo.html" style="color:inherit;text-decoration:none;">Free Demo</a></p>
-        <p><a href="contact.html" style="color:inherit;text-decoration:none;">Career Guidance</a></p>
-      </div>
-
-      <!-- QUICK LINKS -->
-      <div>
-        <h4 style="color:#ffffff;margin-bottom:14px;">Quick Links</h4>
-        <p><a href="index.html" style="color:inherit;text-decoration:none;">Home</a></p>
-        <p><a href="student.html" style="color:inherit;text-decoration:none;">Students</a></p>
-        <p><a href="teacher.html" style="color:inherit;text-decoration:none;">Teachers</a></p>
-        <p><a href="contact.html" style="color:inherit;text-decoration:none;">Contact</a></p>
-      </div>
-
-      <!-- LEGAL -->
-      <div>
-        <h4 style="color:#ffffff;margin-bottom:14px;">Privacy & Info</h4>
-        <p><a href="about.html" style="color:inherit;text-decoration:none;">Terms & Conditions</a></p>
-        <p><a href="about.html#privacy" style="color:inherit;text-decoration:none;">Privacy Policy</a></p>
-        <p><a href="contact.html" style="color:inherit;text-decoration:none;">Get in Touch</a></p>
-        <p><a href="teacher.html" style="color:inherit;text-decoration:none;">Become a Partner</a></p>
-      </div>
-
+<!-- Footer Start -->
+<footer style="
+background:linear-gradient(180deg,#000000,#0b0b0b,#000000);
+color:#dcdcdc;
+padding:50px 70px 25px;
+font-family:'Segoe UI',Arial,sans-serif;
+box-shadow:0 -10px 30px rgba(0,0,0,0.8);
+">    
+  <!-- TOP BAR -->
+  <div style="
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:25px;
+  margin-bottom:30px;
+  ">
+    <h2 style="color:#ffffff;margin:0;font-weight:600;">
+      Stay Updated with Era of Education
+    </h2>
+    <div>
+      <span style="font-size:13px;color:#9a9a9a;">Call Anytime</span>
+      <h3 style="color:#00e5ff;margin:5px 0 0;">+91 72890 53560</h3>
     </div>
+  </div>
 
-    <!-- BOTTOM -->
-    <div style="
-    text-align:center;
-    margin-top:40px;
-    padding-top:20px;
-    font-size:13px;
-    color:#8a8a8a;
-    border-top:1px solid #222;
-    ">
-      ✨ Simple is Powerful • © 2026 Era of Education. All Rights Reserved
+  <hr style="border:0;height:1px;background:linear-gradient(to right,transparent,#333,transparent);margin:35px 0;">
+
+  <!-- MAIN FOOTER -->
+  <div style="
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:35px;
+  ">
+    <div>
+      <h3 style="color:#00e5ff;margin-bottom:12px;">Era of Education</h3>
+      <p style="line-height:1.8;">
+        Taramandal Road, Gorakhpur<br>
+        📞 <a href="tel:7289053560" style="color:inherit;text-decoration:none;">+91 72890 53560</a><br>
+        ✉ <a href="mailto:eraofedu@gmail.com" style="color:inherit;text-decoration:none;">eraofedu@gmail.com</a>
+      </p>
     </div>
+    <div>
+      <h4 style="color:#ffffff;margin-bottom:14px;">Services</h4>
+      <p><a href="student.html" style="color:inherit;text-decoration:none;">Home Tuition</a></p>
+      <p><a href="contact.html" style="color:inherit;text-decoration:none;">Online Classes</a></p>
+      <p><a href="demo.html" style="color:inherit;text-decoration:none;">Free Demo</a></p>
+    </div>
+    <div>
+      <h4 style="color:#ffffff;margin-bottom:14px;">Quick Links</h4>
+      <p><a href="index.html" style="color:inherit;text-decoration:none;">Home</a></p>
+      <p><a href="student.html" style="color:inherit;text-decoration:none;">Students</a></p>
+      <p><a href="teacher.html" style="color:inherit;text-decoration:none;">Teachers</a></p>
+      <p><a href="contact.html" style="color:inherit;text-decoration:none;">Contact</a></p>
+    </div>
+  </div>
 
-  </footer>
+  <div style="text-align:center;margin-top:40px;padding-top:20px;font-size:13px;color:#8a8a8a;border-top:1px solid #222;">
+    ✨ Simple is Powerful • © 2026 Era of Education. All Rights Reserved
+  </div>
+</footer>
 
-  <!-- Back to Top Button -->
-  <a href="#" class="back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </a>
+<script src="js/script.js"></script>
+<script src="js/guruji.js"></script>
+<script>
+const demoForm = document.getElementById("demoForm");
+const successMsg = document.getElementById("successMsg");
+const nextForm = document.getElementById("nextForm");
 
-  <script src="js/script.js"></script>
-  <script src="js/guruji.js"></script>
+demoForm.addEventListener("submit", function(e) {
+  e.preventDefault();
 
-  </body>
-  </html>
+  const message =
+`🎓 Era of Education - Free Demo Class Request
+
+Name: ${document.getElementById("demoName").value}
+Class: ${document.getElementById("demoClass").value}
+School: ${document.getElementById("demoSchool").value}
+Mobile: ${document.getElementById("demoMobile").value}
+Address: ${document.getElementById("demoAddress").value}
+
+Please contact this student to schedule the demo class.`;
+
+  demoForm.style.display = "none";
+  successMsg.style.display = "block";
+  window.__lastWhatsAppMessage = message;
+  openWhatsApp(message);
+});
+
+function showNextForm() {
+  successMsg.style.display = "none";
+  nextForm.style.display = "block";
+}
+
+nextForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const message =
+`🎓 Era of Education - Another Demo Class Request
+
+Name: ${document.getElementById("nextName").value}
+Mobile: ${document.getElementById("nextMobile").value}
+Preferred Subject: ${document.getElementById("nextSubject").value}
+
+Please contact this student to schedule the demo class.`;
+
+  openWhatsApp(message);
+  nextForm.reset();
+});
+
+const demoOpenBtn = document.getElementById('demoOpenWhatsapp');
 if (demoOpenBtn) demoOpenBtn.addEventListener('click', () => {
   const msg = window.__lastWhatsAppMessage || 'Hi, I want to book a demo with Era of Education.';
   openWhatsApp(msg);
 });
 </script>
-
 </body>
 </html>
