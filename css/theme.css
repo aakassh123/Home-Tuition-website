@@ -1210,79 +1210,6 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
   margin: 0 auto;
 }
 
-/* Call-to-Action Banner in Footer */
-.footer-cta-banner {
-  background: linear-gradient(135deg, rgba(0, 51, 102, 0.5) 0%, rgba(15, 23, 42, 0.8) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 28px 32px;
-  margin-bottom: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.footer-cta-text h3 {
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(20px, 3vw, 24px);
-  margin: 0 0 6px;
-  font-weight: 700;
-}
-
-.footer-cta-text p {
-  color: #94A3B8;
-  margin: 0;
-  font-size: 14px;
-  max-width: 580px;
-  line-height: 1.5;
-}
-
-.footer-cta-buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.footer-btn-call {
-  background: #ffffff;
-  color: #003366 !important;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 10px 20px;
-  border-radius: 50px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.footer-btn-call:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2);
-}
-
-.footer-btn-wa {
-  background: #25D366;
-  color: #ffffff !important;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 10px 20px;
-  border-radius: 50px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.footer-btn-wa:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
-}
-
 /* 4-Column Grid */
 .footer-main-grid {
   display: grid;
@@ -1453,24 +1380,23 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
 
 /* Responsive Footer */
 @media (max-width: 960px) {
+  .site-footer-modern {
+    padding: 48px 20px 24px;
+  }
   .footer-main-grid {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-  }
-  .footer-cta-banner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 20px;
   }
 }
 
 @media (max-width: 600px) {
   .site-footer-modern {
-    padding: 45px 16px 20px;
+    padding: 38px 16px 20px;
   }
   .footer-main-grid {
     grid-template-columns: 1fr;
     gap: 28px;
+    margin-bottom: 28px;
   }
   .footer-bottom-strip {
     flex-direction: column;
@@ -1485,10 +1411,6 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
   }
   .footer-bottom-strip a {
     margin-left: 0;
-  }
-  .footer-btn-call, .footer-btn-wa {
-    width: 100%;
-    justify-content: center;
   }
 }
 
