@@ -770,6 +770,16 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
   box-shadow: 0 8px 20px rgba(27, 20, 100, 0.08);
   border-color: var(--indigo-600);
 }
+.locality-card i {
+  font-size: 15px;
+  color: #003366;
+  flex-shrink: 0;
+  transition: transform .25s ease, color .25s ease;
+}
+.locality-card:hover i {
+  color: #2563eb;
+  transform: scale(1.15);
+}
 .locality-card span {
   font-size: 18px;
 }
