@@ -249,7 +249,7 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
 }
 
 .nav-mobile-action {
-  display: none;
+  display: none !important;
 }
 
 /* Laptop Refinement: 981px - 1180px */
@@ -319,7 +319,7 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
   }
 
   .nav-mobile-action {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     gap: 10px;
     margin-top: 10px;
