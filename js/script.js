@@ -91,7 +91,8 @@ const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
 if (menuToggle && navLinks) {
-  menuToggle.addEventListener("click", () => {
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
     menuToggle.classList.toggle("open");
     navLinks.classList.toggle("open");
   });
@@ -101,6 +102,14 @@ if (menuToggle && navLinks) {
       menuToggle.classList.remove("open");
       navLinks.classList.remove("open");
     });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+      menuToggle.classList.remove("open");
+      navLinks.classList.remove("open");
+    }
   });
 }
 
@@ -223,18 +232,48 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.innerHTML = `
       <div class="demo-modal-backdrop" data-role="backdrop"></div>
       <div class="demo-modal-dialog" role="dialog" aria-modal="true">
-        <button class="demo-modal-close" aria-label="Close">×</button>
-        <h3>Book Your Free Demo</h3>
-        <p>Fill the details below and we'll message you on WhatsApp to schedule the demo.</p>
-        <form id="demoForm">
-          <input type="text" name="name" placeholder="Full name" autocomplete="name">
-          <input type="text" name="class" placeholder="Class (e.g. Class 10)">
-          <input type="text" name="subject" placeholder="Subject (e.g. Maths)">
-          <input type="text" name="location" placeholder="City / Area">
-          <input type="tel" name="phone" placeholder="WhatsApp number (with country code) e.g. 91xxxxxxxxxx">
-          <div class="actions">
-            <button type="button" class="btn secondary" id="demoCancel">Cancel</button>
-            <button type="submit" class="btn" id="demoSubmit">Send via WhatsApp</button>
+        <button class="demo-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="demo-modal-header">
+          <span class="pill-badge pill-purple" style="display:inline-block;margin-bottom:10px;font-size:12px;">✨ 100% Free Demo Class</span>
+          <h3>Book Your Free Demo</h3>
+          <p>Fill in quick details. Our Gorakhpur coordinator will assign the best verified tutor and connect via WhatsApp.</p>
+        </div>
+        <form id="modalDemoForm">
+          <div class="luxury-field">
+            <div class="luxury-input-wrap">
+              <i class="fa-solid fa-user input-icon"></i>
+              <input type="text" name="name" placeholder="Student / Parent Full Name" autocomplete="name" required>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="luxury-field">
+              <div class="luxury-input-wrap">
+                <i class="fa-solid fa-graduation-cap input-icon"></i>
+                <input type="text" name="class" placeholder="Class (e.g. 10th)" required>
+              </div>
+            </div>
+            <div class="luxury-field">
+              <div class="luxury-input-wrap">
+                <i class="fa-solid fa-book-open input-icon"></i>
+                <input type="text" name="subject" placeholder="Subject (e.g. Maths)">
+              </div>
+            </div>
+          </div>
+          <div class="luxury-field">
+            <div class="luxury-input-wrap">
+              <i class="fa-solid fa-location-dot input-icon"></i>
+              <input type="text" name="location" placeholder="Area in Gorakhpur (e.g. Taramandal)" required>
+            </div>
+          </div>
+          <div class="luxury-field">
+            <div class="luxury-input-wrap">
+              <i class="fa-brands fa-whatsapp input-icon" style="color:#25D366;"></i>
+              <input type="tel" name="phone" placeholder="WhatsApp Number (10 digits)" required>
+            </div>
+          </div>
+          <div class="demo-modal-actions">
+            <button type="button" class="modal-btn-cancel" id="demoCancel">Cancel</button>
+            <button type="submit" class="modal-btn-submit" id="demoSubmit"><i class="fa-brands fa-whatsapp"></i> Confirm via WhatsApp</button>
           </div>
         </form>
       </div>
@@ -244,13 +283,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModal = () => modal.classList.add('show');
     const closeModal = () => modal.classList.remove('show');
 
-    // open modal when clicking header/demo CTAs
-    document.querySelectorAll('.nav-cta, .demo-btn').forEach((el) => {
-      el.addEventListener('click', (ev) => {
-        ev.preventDefault();
-        openModal();
+    // open modal when clicking header/demo CTAs (except when on demo.html where full page form exists)
+    if (!window.location.pathname.endsWith('demo.html')) {
+      document.querySelectorAll('.nav-cta, .demo-btn').forEach((el) => {
+        el.addEventListener('click', (ev) => {
+          ev.preventDefault();
+          openModal();
+        });
       });
-    });
+    }
 
     // close handlers
     modal.querySelector('[data-role="backdrop"]').addEventListener('click', closeModal);
@@ -259,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
     // form submit -> open WhatsApp
-    const form = document.getElementById('demoForm');
+    const form = modal.querySelector('#modalDemoForm');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const fd = new FormData(form);

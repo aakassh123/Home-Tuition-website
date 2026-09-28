@@ -126,11 +126,56 @@ nav a:hover{
 }
 
 .cta{
-  background:linear-gradient(135deg,#080808,#0a0a0a);
+  background:linear-gradient(135deg, #181156 0%, #2A1D7A 45%, #4C3FE0 100%);
   color:#fff;
-  padding:80px 8%;
+  padding:85px 8%;
   text-align:center;
-  
+  position:relative;
+  overflow:hidden;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123, 97, 255, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800;
+  margin: 0 0 14px;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.cta p {
+  font-size: 16.5px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
 .whatsapp{
@@ -146,48 +191,54 @@ nav a:hover{
 /* WhatsApp Floating Button */
  .whatsapp-float {
   position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 30px;
+  width: 58px;
+  height: 58px;
+  bottom: 28px;
   right: 25px;
   background-color: #25d366;
   color: #FFF;
   border-radius: 50%;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.4);
   z-index: 1000;
-  animation: pulse 1.5s infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.55);
 }
 
 .whatsapp-float img {
-  width: 60%;
-  margin-top: 12px;
+  width: 32px;
+  height: 32px;
+  margin: 0;
 }
 
-/* Pulse animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
-}
 .demo-btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 16px 45px;
-  font-size: 20px;
-  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 16px 42px;
+  font-size: 16.5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   color: white;
   text-decoration: none;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #ff512f, #dd2476);
-  box-shadow: 0 10px 25px rgba(221,36,118,0.4);
-  transition: 0.3s ease;
-  animation: pulse 1.5s infinite;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #FF6B35 0%, #FF4D12 100%);
+  box-shadow: 0 12px 28px rgba(255, 77, 18, 0.38);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .demo-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 15px 35px rgba(221,36,118,0.6);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(255, 77, 18, 0.48);
 }
 .site-footer {
   background: #000000;

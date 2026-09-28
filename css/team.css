@@ -292,191 +292,349 @@ footer{
   }
 }
 /* =========================================================
-   TEAM CARDS V2 — upgraded "Vedantu-style" mentor cards
-   (added without modifying any existing rules above)
+   TEAM CARDS V2 — Luxury Mentor & Faculty Cards
+   Fixed duplicate caption bug, added modern glass & pill design
    ========================================================= */
 
-.team-section-v2{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:32px;
-  padding:70px 8%;
-  align-items:start;
+.team-section-v2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  padding: 60px 8%;
+  max-width: 1280px;
+  margin: 0 auto;
+  align-items: start;
 }
 
-.team-card-v2{
-  background:rgba(255,255,255,0.9);
-  backdrop-filter: blur(6px);
-  border-radius:22px;
-  overflow:visible;
-  box-shadow:0 18px 40px rgba(12,20,40,0.08);
-  transition:transform .35s ease, box-shadow .35s ease;
-  display:flex;
-  flex-direction:column;
-  position:relative;
+.team-card-v2 {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(27, 20, 100, 0.08);
+  box-shadow: 0 12px 34px rgba(27, 20, 100, 0.07);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-.team-card-v2:hover{
-  transform:translateY(-8px);
-  box-shadow:0 34px 80px rgba(12,20,40,0.12);
+.team-card-v2:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(27, 20, 100, 0.14);
 }
 
-.team-card-v2 .tc-photo{
-  position:relative;
-  width:100%;
-  height:260px;
-  overflow:visible;
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
+/* Header Banner */
+.tc-banner {
+  height: 120px;
+  background: linear-gradient(135deg, #181156 0%, #2A1D7A 50%, var(--accent, #4C3FE0) 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.tc-avatar{
-  width:230px;
-  height:230px;
-  border-radius:50%;
-  overflow:hidden;
-  border:6px solid #fff;
-  box-shadow:0 18px 40px rgba(17,24,39,0.15);
-  transform:translateY(50%);
-  background:#eee;
+.tc-banner::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
 }
 
-.tc-avatar img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 20%;
-  filter: none;
-  display:block;
-  transition:transform .4s ease, filter .3s ease;
+/* Avatar with Verified Badge */
+.tc-avatar-wrap {
+  width: 140px;
+  height: 140px;
+  margin: -70px auto 14px;
+  position: relative;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 4px;
+  box-shadow: 0 10px 28px rgba(27, 20, 100, 0.15);
 }
 
-.tc-caption{
-  text-align:center;
-  transform:translateY(30%);
-  margin-top:6px;
+.tc-avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 50%;
+  display: block;
+  transition: transform 0.4s ease;
 }
-.tc-caption .tc-name{font-weight:700;color:#161636;font-size:16px}
-.tc-caption .tc-qual{font-size:13px;color:#4a4a4a;margin-top:4px}
 
-/* inline meta under avatar (name/qualification/role) */
-.tc-name-inline{font-size:20px;margin:6px 0 4px;color:#151828}
-.tc-meta{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
-.tc-qual-inline{color:#6b6b83;font-weight:600}
-.tc-role-inline{color:#4a4a4a;font-weight:700}
+.team-card-v2:hover .tc-avatar-wrap img {
+  transform: scale(1.05);
+}
 
-/* details (hidden by default) */
-.tc-details{max-height:0;overflow:hidden;transition:max-height .45s ease,opacity .35s ease;padding:0 6px}
-.team-card-v2.expanded .tc-details{max-height:800px;padding:12px 18px}
-.expertise-tags span{display:inline-block;background:#f1f5f9;color:#333;padding:6px 10px;border-radius:999px;margin-right:8px;margin-bottom:8px;font-weight:600}
-.tc-details h4{margin:8px 0 6px}
-.tc-details h5{margin:10px 0 6px}
-.tc-details ul{margin-left:20px}
+.tc-verified-dot {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #10B981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
 
-/* small note overlay on photos */
-.tc-note{ display:none }
-.tc-role-badge{display:none}
+/* Card Body */
+.tc-body {
+  padding: 0 26px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tc-role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: center;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #EEF2FF;
+  color: var(--accent, #4C3FE0);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin-bottom: 10px;
+}
+
+.tc-name-inline {
+  font-size: 21px;
+  font-weight: 700;
+  color: #161636;
+  margin: 0 0 6px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tc-qual-inline {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #5C5C7A;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.expertise-tags span {
+  display: inline-block;
+  background: #F4F6FC;
+  color: #383B56;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(27, 20, 100, 0.05);
+}
+
+/* Explore / Toggle Button */
+.tc-explore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #F0F2FA;
+  color: #1E1656;
+  border: 1px solid #DCE0F2;
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.tc-explore i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.tc-explore:hover {
+  background: var(--accent, #4C3FE0);
+  color: #ffffff;
+  border-color: var(--accent, #4C3FE0);
+  box-shadow: 0 6px 18px rgba(76, 63, 224, 0.28);
+  transform: translateY(-2px);
+}
+
+.team-card-v2.expanded .tc-explore i {
+  transform: rotate(180deg);
+}
+
+/* Expandable Details */
+.tc-details {
+  max-height: 0;
+  overflow: hidden;
+  text-align: left;
+  transition: max-height 0.45s ease, opacity 0.35s ease, padding 0.35s ease;
+  padding: 0 6px;
+  opacity: 0;
+}
+
+.team-card-v2.expanded .tc-details {
+  max-height: 900px;
+  padding: 18px 8px 0;
+  opacity: 1;
+  border-top: 1px solid #EEF0F8;
+  margin-top: 16px;
+}
+
+.tc-details h4 {
+  margin: 10px 0 6px;
+  font-size: 14.5px;
+  font-family: 'Poppins', sans-serif;
+  color: #161636;
+}
+
+.tc-details h5 {
+  margin: 12px 0 6px;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  color: #161636;
+}
+
+.tc-details p {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #5C5C7A;
+  margin: 0 0 10px;
+}
+
+.tc-details ul {
+  margin: 0 0 10px 18px;
+  padding: 0;
+  color: #5C5C7A;
+  font-size: 13px;
+  line-height: 1.6;
+}
 
 /* Modal styles */
-.team-modal{display:none;position:fixed;inset:0;z-index:9999;font-family:'Segoe UI',sans-serif}
-.team-modal.show{display:block}
-.team-modal-backdrop{position:absolute;inset:0;background:rgba(6,8,20,0.6)}
-.team-modal-content{position:relative;width:92%;max-width:980px;margin:6% auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(2,6,23,0.6)}
-.team-modal-close{position:absolute;right:12px;top:12px;background:transparent;border:none;font-size:20px;cursor:pointer}
-.team-modal-body{display:flex;gap:20px;padding:28px}
-.team-modal-left img{width:280px;height:280px;object-fit:cover;border-radius:10px}
-.team-modal-right h3{margin:0 0 8px;font-size:22px;color:#161636}
-.modal-qualification{color:var(--accent,#4C3FE0);font-weight:700;margin-bottom:10px}
-.modal-note{font-weight:600;color:#666;margin-bottom:12px}
-.modal-bio{color:#444;line-height:1.7}
-
-/* Explore CTA on team cards */
-.tc-explore{
-  background:linear-gradient(135deg,#ff7043,#ff5722);
-  color:#fff;
-  border:none;
-  padding:10px 18px;
-  border-radius:10px;
-  font-weight:700;
-  cursor:pointer;
-  box-shadow:0 10px 30px rgba(255,87,34,0.18);
-}
-.tc-explore:hover{transform:translateY(-3px)}
-
-@media(max-width:900px){
-  .team-modal-body{flex-direction:column;align-items:center}
-  .team-modal-left img{width:220px;height:220px}
+.team-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  font-family: 'Inter', sans-serif;
 }
 
-.team-card-v2:hover .tc-avatar img{
-  transform:scale(1.03);
+.team-modal.show {
+  display: block;
 }
 
-.team-card-v2 .tc-role-badge{
-  position:absolute;
-  bottom:14px;
-  left:14px;
-  background:var(--accent, #4C3FE0);
-  color:#ffffff;
-  font-size:12.5px;
-  font-weight:700;
-  letter-spacing:.3px;
-  padding:6px 14px;
-  border-radius:999px;
-  box-shadow:0 8px 18px rgba(0,0,0,0.25);
+.team-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 6, 26, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
-.team-card-v2 .tc-body{
-  padding:120px 26px 28px;
-  flex:1;
-  display:flex;
-  flex-direction:column;
+.team-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 820px;
+  margin: 5% auto;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
 }
 
-.team-card-v2 h3{
-  font-size:21px;
-  font-weight:700;
-  color:var(--text-dark, #161636);
-  margin-bottom:6px;
+.team-modal-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  background: rgba(0, 0, 0, 0.08);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+  transition: background 0.2s ease;
 }
 
-.team-card-v2 .tc-qualification{
-  font-size:14px;
-  font-weight:600;
-  color:var(--accent, #4C3FE0);
-  margin-bottom:14px;
-  line-height:1.5;
+.team-modal-close:hover {
+  background: rgba(0, 0, 0, 0.15);
 }
 
-.team-card-v2 .tc-bio{
-  font-size:14.5px;
-  line-height:1.7;
-  color:var(--text-mute, #5C5C7A);
-  margin-bottom:12px;
+.team-modal-body {
+  display: flex;
+  gap: 28px;
+  padding: 34px;
 }
 
-.team-card-v2 .tc-bio:last-child{
-  margin-bottom:0;
+.team-modal-left img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(27, 20, 100, 0.12);
 }
 
-@media(max-width:600px){
-  .team-section-v2{
-    padding:50px 6%;
-    gap:28px;
+.team-modal-right h3 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  color: #161636;
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-qualification {
+  color: var(--accent, #4C3FE0);
+  font-weight: 700;
+  font-size: 14.5px;
+  margin-bottom: 8px;
+}
+
+.modal-note {
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.modal-bio {
+  color: #444;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .team-section-v2 {
+    grid-template-columns: 1fr;
+    padding: 40px 5%;
   }
-  .team-card-v2 .tc-photo{
-    height:150px;
+  .team-modal-body {
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
   }
-  .tc-avatar{ width:160px; height:160px; transform:translateY(28%); }
-  .team-card-v2 .tc-body{ padding:90px 18px 20px }
+  .team-modal-left img {
+    width: 180px;
+    height: 180px;
+  }
 }
 
-/* Responsive grid: tablet 2 columns, mobile 1 column */
-@media (max-width:1000px){
-  .team-section-v2{ grid-template-columns:repeat(2,1fr) }
-}
-@media (max-width:640px){
-  .team-section-v2{ grid-template-columns:repeat(1,1fr); padding:40px 5% }
-  .tc-avatar{ width:150px; height:150px; transform:translateY(22%) }
-}
