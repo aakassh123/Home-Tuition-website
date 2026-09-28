@@ -32,22 +32,7 @@ body {
   line-height: 1.6;
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: 700;
-  color: #003366;
-}
-
-.navbar nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.navbar nav a:hover {
-  color: #007bff;
-}
+/* Legacy navbar rules removed to allow theme.css header */
 
 /* HERO SLIDER */
 .slider {

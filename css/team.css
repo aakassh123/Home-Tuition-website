@@ -21,34 +21,7 @@ body{
 }
 
 
-/* NAVBAR */
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  padding:20px 8%;
-  background:#fff;
-  box-shadow:0 4px 25px rgba(0,0,0,.1);
-  position:sticky;
-  top:0;
-  z-index:999;
-}
-
-.logo{
-  font-size:22px;
-  font-weight:700;
-  color:#003366;
-}
-
-nav a{
-  margin-left:22px;
-  text-decoration:none;
-  font-weight:600;
-  color:#333;
-}
-
-nav a.active{
-  color:#007bff;
-}
+/* Legacy navbar rules removed to allow unified theme.css header */
 
 /* HERO */
 .team-hero{
@@ -142,113 +115,7 @@ nav a.active{
   color:#777;
 }
 
-/* FOOTER */
-footer{
-  background:#111;
-  color:white;
-  text-align:center;
-  padding:22px;
-  margin-top:50px;
-}
-.site-footer {
-  background: #050a0f;
-  color: #a0a0a0;
-  font-family: 'Inter', 'Roboto', sans-serif;
-  padding-top: 70px;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px 50px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
-}
-
-.footer-col h3 {
-  color: #ffffff;
-  font-weight: 700;
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-.footer-col p {
-  margin-bottom: 12px;
-  font-size: 15px;
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-col ul li {
-  margin-bottom: 12px;
-}
-
-.footer-col ul li a {
-  text-decoration: none;
-  color: #a0a0a0;
-  transition: 0.3s;
-}
-
-.footer-col ul li a:hover {
-  color: #ffffff;
-}
-
-.accent {
-  color: #00c2cb;
-  margin-right: 10px;
-}
-
-.social-icons a {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 42px;
-  height: 42px;
-  background: #0b1a22;
-  color: #00c2cb;
-  border-radius: 50%;
-  margin-right: 10px;
-  transition: 0.3s;
-  font-size: 18px;
-}
-
-.social-icons a:hover {
-  background: #00c2cb;
-  color: #050a0f;
-}
-
-/* Bottom Bar */
-.footer-bottom {
-  border-top: 1px solid #0f2430;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.footer-left img {
-  width: 40px;
-}
-
-.footer-left span {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.footer-right {
-  font-size: 14px;
-}
+/* Legacy footer rules removed */
 
 /* Back to Top Button */
 .back-to-top {

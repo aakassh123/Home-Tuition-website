@@ -115,11 +115,14 @@ if (menuToggle && navLinks) {
 
 /* ---------- ACTIVE NAV LINK (auto-detect current page) ---------- */
 if (navLinks) {
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  let currentPage = window.location.pathname.split("/").pop() || "index.html";
+  if (!currentPage || currentPage === "") currentPage = "index.html";
   navLinks.querySelectorAll("a").forEach((link) => {
     const href = link.getAttribute("href");
-    if (href === currentPage) {
+    if (href === currentPage || (currentPage === "index.html" && (href === "./" || href === "/"))) {
       link.classList.add("active");
+    } else {
+      link.classList.remove("active");
     }
   });
 }
@@ -283,9 +286,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModal = () => modal.classList.add('show');
     const closeModal = () => modal.classList.remove('show');
 
-    // open modal when clicking header/demo CTAs (except when on demo.html where full page form exists)
+    // open modal when clicking in-page demo CTAs (except when on demo.html where full page form exists)
     if (!window.location.pathname.endsWith('demo.html')) {
-      document.querySelectorAll('.nav-cta, .demo-btn').forEach((el) => {
+      document.querySelectorAll('.demo-btn, [data-trigger="demoModal"]').forEach((el) => {
         el.addEventListener('click', (ev) => {
           ev.preventDefault();
           openModal();

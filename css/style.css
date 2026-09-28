@@ -9,56 +9,7 @@ body{
   background:#f9fbff;
 }
 
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  padding:20px 8%;
-  background:#fff;
-  box-shadow:0 4px 25px rgba(0,0,0,.1);
-  position:sticky;
-  top:0;
-}
-
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 8%;
-  background:#fff;
-  box-shadow:0 4px 15px rgba(0,0,0,0.1);
-  position:sticky;
-  top:0;
-  z-index:999;
-}
-
-/* .logo{
-  font-size:22px;
-  font-weight:700;
-  color:#003366;
-} */
- .logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 50px;        /* perfect navbar height */
-  width: auto;
-  object-fit: contain;
-}
-
-
-nav a{
-  margin-left:22px;
-  text-decoration:none;
-  font-weight:600;
-  color:#333;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#f4c430;
-}
+/* Legacy navbar styles cleaned up to avoid conflicts with theme.css */
 
 .hero{
   display:flex;
