@@ -11,27 +11,46 @@ body{
 
 /* Legacy navbar styles cleaned up to avoid conflicts with theme.css */
 
-.hero{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:80px 8%;
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 24px;
 }
 
-.hero-text h1{
-  font-size:42px;
-  color:#003366;
+.hero-text {
+  flex: 1 1 55%;
+  min-width: 0;
 }
 
-.hero-text p{
-  margin:20px 0;
-  font-size:18px;
+.hero-text h1 {
+  font-size: clamp(30px, 3.6vw, 44px);
+  color: #003366;
+  line-height: 1.25;
 }
 
-.hero-image img{
-  width:420px;
-  border-radius:25px;
-  box-shadow:0 30px 70px rgba(0,0,0,.25);
+.hero-text p {
+  margin: 16px 0 20px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.hero-image {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: 0 30px 70px rgba(0,0,0,.25);
 }
  
 
@@ -238,13 +257,42 @@ body{
   color: #ffffff;
 }
 
-/* Responsive hero: stack on small screens to avoid overlap */
-@media (max-width: 800px) {
-  .hero{flex-direction:column;align-items:center;padding:40px 6%;gap:18px}
-  .hero-image img{width:90%;max-width:380px}
-  .hero-text h1{font-size:32px;text-align:center}
-  .hero-text p{font-size:16px;text-align:center}
-  .hero-buttons a{display:block;width:100%;max-width:320px;margin:8px auto}
+/* Responsive hero: stack on medium/small screens to avoid overlap */
+@media (max-width: 960px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 28px;
+    text-align: center;
+  }
+  .hero-image {
+    justify-content: center;
+  }
+  .hero-image img {
+    width: 100%;
+    max-width: 380px;
+  }
+  .hero-text h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+  .hero-text p {
+    font-size: 16px;
+    text-align: center;
+  }
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hero-buttons a {
+    display: inline-block;
+    width: auto;
+    min-width: 180px;
+    margin: 4px;
+  }
 }
 
 .accent {

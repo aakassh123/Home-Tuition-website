@@ -379,6 +379,80 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- TEACHER / MENTOR PROFILE EXPAND & MODAL ---------- */
+  // 1. Accordion Toggle on Explore Profile button
+  document.querySelectorAll(".tc-explore").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const card = btn.closest(".team-card-v2");
+      if (!card) return;
+
+      const isExpanded = card.classList.contains("expanded");
+      if (isExpanded) {
+        card.classList.remove("expanded");
+        btn.innerHTML = 'Explore Profile <i class="fa-solid fa-chevron-down"></i>';
+      } else {
+        card.classList.add("expanded");
+        btn.innerHTML = 'Hide Profile <i class="fa-solid fa-chevron-up"></i>';
+      }
+    });
+  });
+
+  // 2. Full Bio Modal for Team/Mentors
+  const teamModal = document.getElementById("teamModal");
+  if (teamModal) {
+    const modalImage = document.getElementById("modalImage");
+    const modalName = document.getElementById("modalName");
+    const modalQual = document.getElementById("modalQualification");
+    const modalNote = document.getElementById("modalNote");
+    const modalBio = document.getElementById("modalBio");
+    const modalClose = document.getElementById("teamModalClose");
+    const modalBackdrop = document.getElementById("teamModalBackdrop");
+
+    const openTeamModal = (card) => {
+      if (!card) return;
+      if (modalImage) {
+        modalImage.src = card.dataset.image || "";
+        modalImage.alt = card.dataset.name || "Mentor Photo";
+      }
+      if (modalName) modalName.textContent = card.dataset.name || "";
+      if (modalQual) modalQual.textContent = card.dataset.qualification || "";
+      if (modalNote) modalNote.textContent = card.dataset.note || "";
+      const detailsEl = card.querySelector(".tc-details");
+      if (modalBio && detailsEl) {
+        modalBio.innerHTML = detailsEl.innerHTML;
+      }
+      teamModal.classList.add("show");
+      teamModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeTeamModal = () => {
+      teamModal.classList.remove("show");
+      teamModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    if (modalClose) modalClose.addEventListener("click", closeTeamModal);
+    if (modalBackdrop) modalBackdrop.addEventListener("click", closeTeamModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && teamModal.classList.contains("show")) {
+        closeTeamModal();
+      }
+    });
+
+    // Clicking avatar or mentor name also opens full modal
+    document.querySelectorAll(".team-card-v2 .tc-avatar-wrap, .team-card-v2 .tc-name-inline").forEach((el) => {
+      el.style.cursor = "pointer";
+      el.setAttribute("title", "Click to view full mentor profile");
+      el.addEventListener("click", () => {
+        const card = el.closest(".team-card-v2");
+        openTeamModal(card);
+      });
+    });
+  }
+
   /* ---------- FAQ ACCORDION (SEO / Rich Snippets) ---------- */
   document.querySelectorAll(".faq-question").forEach((btn) => {
     btn.addEventListener("click", () => {

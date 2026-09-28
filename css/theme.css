@@ -252,18 +252,29 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
   display: none;
 }
 
-/* Breakpoint 1080px: hide phone text to prevent link wrapping */
-@media (max-width: 1080px) {
+/* Laptop Refinement: 981px - 1180px */
+@media (max-width: 1180px) {
+  .nav-container {
+    padding: 0 16px;
+  }
+  .nav-links a {
+    padding: 7px 10px;
+    font-size: 13.5px;
+  }
   .nav-phone span {
     display: none;
   }
   .nav-phone {
-    padding: 8px 10px;
+    padding: 7px 10px;
+  }
+  .nav-cta {
+    padding: 8px 16px !important;
+    font-size: 13.5px !important;
   }
 }
 
-/* Breakpoint 960px: Mobile Navigation Drawer */
-@media (max-width: 960px) {
+/* Breakpoint 980px: Mobile Navigation Drawer */
+@media (max-width: 980px) {
   .menu-toggle {
     display: flex;
   }

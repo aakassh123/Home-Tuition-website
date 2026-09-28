@@ -1,59 +1,57 @@
- *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Segoe UI",sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  background:#f5f7fb;
-  color:#333;
+body {
+  background: #f8fafc;
+  color: #1e293b;
 }
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 50px;        /* perfect navbar height */
-  width: auto;
-  object-fit: contain;
-}
-
-
-/* Legacy navbar rules removed to allow unified theme.css header */
 
 /* HERO */
-.team-hero{
-  height:70vh;
-  background:url("https://images.pexels.com/photos/4145193/pexels-photo-4145193.jpeg") center/cover no-repeat;
-  position:relative;
+.team-hero {
+  min-height: 340px;
+  height: clamp(340px, 42vh, 460px);
+  background: url("https://images.pexels.com/photos/4145193/pexels-photo-4145193.jpeg") center/cover no-repeat;
+  position: relative;
 }
 
-.team-hero .overlay{
-  background:rgba(0,0,0,0.65);
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-align:center;
+.team-hero .overlay {
+  background: rgba(15, 23, 42, 0.72);
+  height: 100%;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
 }
 
-.team-hero h1{
-  font-size:52px;
+.team-hero h1 {
+  font-size: clamp(28px, 4.2vw, 46px);
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  line-height: 1.25;
 }
 
-.team-hero p{
-  font-size:22px;
-  margin-top:10px;
+.team-hero p {
+  font-size: clamp(15px, 2vw, 19px);
+  margin-top: 14px;
+  max-width: 720px;
+  opacity: 0.95;
+  line-height: 1.55;
+  font-family: 'Inter', sans-serif;
 }
 
 /* INTRO */
-.team-intro{
-  padding:80px 12%;
-  text-align:center;
+.team-intro {
+  padding: 60px 24px 30px;
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .team-intro h2{
@@ -140,37 +138,35 @@ body{
   transform: translateY(-5px);
 }
 
-/* Responsive */
-@media(max-width: 900px) {
-  .footer-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media(max-width: 500px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-bottom {
-    text-align: center;
-    flex-direction: column;
-    gap: 10px;
-  }
-}
 /* =========================================================
    TEAM CARDS V2 — Luxury Mentor & Faculty Cards
-   Fixed duplicate caption bug, added modern glass & pill design
+   Device-friendly 3-column / 2-column / 1-column responsive grid
    ========================================================= */
 
 .team-section-v2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-  padding: 60px 8%;
-  max-width: 1280px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  padding: 40px 24px 80px;
+  max-width: 1220px;
   margin: 0 auto;
   align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .team-section-v2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 30px 20px 60px;
+  }
+}
+
+@media (max-width: 680px) {
+  .team-section-v2 {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 20px 16px 50px;
+  }
 }
 
 .team-card-v2 {
@@ -320,7 +316,7 @@ body{
   background: #F0F2FA;
   color: #1E1656;
   border: 1px solid #DCE0F2;
-  padding: 9px 20px;
+  padding: 10px 22px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 13.5px;
@@ -328,6 +324,7 @@ body{
   align-self: center;
   transition: all 0.25s ease;
   font-family: 'Inter', sans-serif;
+  user-select: none;
 }
 
 .tc-explore i {
@@ -336,11 +333,18 @@ body{
 }
 
 .tc-explore:hover {
-  background: var(--accent, #4C3FE0);
+  background: var(--accent, #003366);
   color: #ffffff;
-  border-color: var(--accent, #4C3FE0);
-  box-shadow: 0 6px 18px rgba(76, 63, 224, 0.28);
+  border-color: var(--accent, #003366);
+  box-shadow: 0 6px 18px rgba(0, 51, 102, 0.22);
   transform: translateY(-2px);
+}
+
+.team-card-v2.expanded .tc-explore {
+  background: var(--accent, #003366);
+  color: #ffffff;
+  border-color: var(--accent, #003366);
+  box-shadow: 0 4px 14px rgba(0, 51, 102, 0.2);
 }
 
 .team-card-v2.expanded .tc-explore i {
@@ -352,14 +356,14 @@ body{
   max-height: 0;
   overflow: hidden;
   text-align: left;
-  transition: max-height 0.45s ease, opacity 0.35s ease, padding 0.35s ease;
-  padding: 0 6px;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+  padding: 0 10px;
   opacity: 0;
 }
 
 .team-card-v2.expanded .tc-details {
-  max-height: 900px;
-  padding: 18px 8px 0;
+  max-height: 1200px;
+  padding: 20px 10px 12px;
   opacity: 1;
   border-top: 1px solid #EEF0F8;
   margin-top: 16px;
@@ -392,6 +396,27 @@ body{
   color: #5C5C7A;
   font-size: 13px;
   line-height: 1.6;
+}
+
+.tc-mentor-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #10B981;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: all 0.2s ease;
+}
+
+.tc-mentor-wa:hover {
+  background: #059669;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.28);
 }
 
 /* Modal styles */
