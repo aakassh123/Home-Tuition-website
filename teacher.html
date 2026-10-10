@@ -218,26 +218,46 @@
   </div>
 </section>
 
+<!-- TEACHER WHATSAPP CHANNEL CALLOUT BANNER -->
+<section style="padding: 0 6% 30px;">
+  <div style="background: linear-gradient(135deg, #064E3B 0%, #047857 50%, #0D9488 100%); color: #ffffff; padding: 22px 28px; border-radius: 20px; max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; box-shadow: 0 12px 30px rgba(4, 120, 87, 0.28); border: 1px solid rgba(255,255,255,0.18);">
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <div style="width: 52px; height: 52px; border-radius: 50%; background: #25D366; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(37,211,102,0.4);">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      <div>
+        <span style="background: rgba(255,255,255,0.2); font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; margin-bottom: 4px;">Exclusive Teachers Community</span>
+        <h3 style="font-size: 18px; margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700;">Join Official Gorakhpur Teachers WhatsApp Channel</h3>
+        <p style="font-size: 13.5px; margin: 3px 0 0; opacity: 0.92;">Daily student inquiries, doorstep home tuition assignments &amp; batch alerts in Gorakhpur.</p>
+      </div>
+    </div>
+    <a href="https://whatsapp.com/channel/0029Vb8QLVbL7UVYXiKoW03V" target="_blank" rel="noopener noreferrer" style="background: #25D366; color: #ffffff; padding: 12px 24px; border-radius: 999px; font-weight: 700; font-size: 14.5px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.2); white-space: nowrap; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+      <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Join Channel (Free)
+    </a>
+  </div>
+</section>
+
 <!-- REGISTRATION FORM -->
 <section class="t-section" id="registerForm">
   <div style="text-align:center;margin-bottom:28px;">
     <span class="eyebrow center" style="display:inline-block;">Join Our Faculty</span>
     <h2 class="t-title" style="margin:6px 0 8px;">Teacher & Tutor Registration</h2>
-    <p class="t-sub" style="margin:0 auto;max-width:540px;">Fill this quick application — our teacher onboarding coordinator will call you to discuss students matching your subject and preferred locations.</p>
+    <p class="t-sub" style="margin:0 auto;max-width:540px;">Fill this simple application to join our verified tutor network in Gorakhpur. Only relevant teaching details required!</p>
   </div>
 
   <div class="luxury-form-card reveal">
     <div class="luxury-form-header">
       <span class="luxury-badge"><i class="fa-solid fa-chalkboard-user"></i> Verified Tutor Network • Top Earning</span>
       <h2>Apply to Teach with Us</h2>
-      <p>Takes less than 2 minutes • Flexible hours & guaranteed timely payouts</p>
+      <p>Takes less than 60 seconds • Flexible hours &amp; guaranteed timely payouts</p>
     </div>
 
     <div class="luxury-form-body">
       <form id="teacherForm">
+        <!-- Name & WhatsApp -->
         <div class="form-grid-2">
           <div class="luxury-field">
-            <label for="teacherName">Teacher Name <span class="req">*</span></label>
+            <label for="teacherName">Full Name <span class="req">*</span></label>
             <div class="luxury-input-wrap">
               <i class="fa-solid fa-user-tie field-icon"></i>
               <input type="text" id="teacherName" placeholder="Enter your full name" required autocomplete="name">
@@ -245,25 +265,7 @@
           </div>
 
           <div class="luxury-field">
-            <label for="teacherSubject">Subject & Classes <span class="req">*</span></label>
-            <div class="luxury-input-wrap">
-              <i class="fa-solid fa-book-open field-icon"></i>
-              <input type="text" id="teacherSubject" placeholder="e.g. Maths & Science (Class 8-10)" required>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-grid-2">
-          <div class="luxury-field">
-            <label for="teacherExperience">Teaching Experience <span class="req">*</span></label>
-            <div class="luxury-input-wrap">
-              <i class="fa-solid fa-calendar-check field-icon"></i>
-              <input type="text" id="teacherExperience" placeholder="e.g. 3 Years / Fresher" required>
-            </div>
-          </div>
-
-          <div class="luxury-field">
-            <label for="teacherMobile">WhatsApp / Mobile Number <span class="req">*</span></label>
+            <label for="teacherMobile">WhatsApp Number <span class="req">*</span></label>
             <div class="luxury-input-wrap">
               <i class="fa-brands fa-whatsapp field-icon" style="color:#25D366;font-size:18px;"></i>
               <input type="tel" id="teacherMobile" placeholder="10-digit mobile number" required pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" autocomplete="tel">
@@ -271,16 +273,87 @@
           </div>
         </div>
 
-        <div class="luxury-field">
-          <label for="teacherLocation">Preferred Areas / Locations in Gorakhpur <span class="hint">(Where you can teach)</span></label>
-          <div class="luxury-input-wrap">
-            <i class="fa-solid fa-location-dot field-icon"></i>
-            <input type="text" id="teacherLocation" placeholder="e.g. Betiahata, Taramandal, Rustampur, Golghar...">
+        <!-- Qualification & Experience -->
+        <div class="form-grid-2">
+          <div class="luxury-field">
+            <label for="teacherQualification">Highest Qualification <span class="req">*</span></label>
+            <div class="luxury-input-wrap">
+              <i class="fa-solid fa-user-graduate field-icon"></i>
+              <select id="teacherQualification" required style="padding-left:44px;">
+                <option value="" disabled selected>Select Your Qualification</option>
+                <option value="Post Graduate (M.Sc / M.Com / MA / M.Tech)">Post Graduate (M.Sc / M.Com / MA / M.Tech)</option>
+                <option value="Graduate (B.Sc / B.Com / BA / BCA)">Graduate (B.Sc / B.Com / BA / BCA)</option>
+                <option value="Engineering Graduate (B.Tech / BE)">Engineering Graduate (B.Tech / BE)</option>
+                <option value="B.Ed / D.El.Ed Certified Educator">B.Ed / D.El.Ed Certified Educator</option>
+                <option value="Pursuing Graduation (Final Year)">Pursuing Graduation (Final Year)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="luxury-field">
+            <label for="teacherExperience">Teaching Experience <span class="req">*</span></label>
+            <div class="luxury-input-wrap">
+              <i class="fa-solid fa-calendar-check field-icon"></i>
+              <select id="teacherExperience" required style="padding-left:44px;">
+                <option value="" disabled selected>Select Experience</option>
+                <option value="Fresher (Passionate to teach)">Fresher (Passionate to teach)</option>
+                <option value="1 to 2 Years Experience">1 to 2 Years Experience</option>
+                <option value="3 to 5 Years Experience">3 to 5 Years Experience</option>
+                <option value="5+ Years Senior Specialist">5+ Years Senior Specialist</option>
+              </select>
+            </div>
           </div>
         </div>
 
-        <button type="submit" class="luxury-submit-btn">
-          <i class="fa-brands fa-whatsapp"></i> Submit Application via WhatsApp
+        <!-- Subject & Classes -->
+        <div class="luxury-field">
+          <label for="teacherSubject">Subjects &amp; Classes You Can Teach <span class="req">*</span></label>
+          <div class="luxury-input-wrap">
+            <i class="fa-solid fa-book-open field-icon"></i>
+            <select id="teacherSubject" required style="padding-left:44px;">
+              <option value="" disabled selected>Select Your Teaching Preference</option>
+              <option value="Classes 1 to 5 (All Subjects Foundation)">Classes 1 to 5 (All Subjects Foundation)</option>
+              <option value="Classes 6 to 8 (Mathematics & Science)">Classes 6 to 8 (Mathematics &amp; Science)</option>
+              <option value="Classes 9 to 10 (Mathematics & Science - Board Prep)">Classes 9 to 10 (Mathematics &amp; Science - Board Prep)</option>
+              <option value="Classes 11 to 12 (Physics & Chemistry - Science)">Classes 11 to 12 (Physics &amp; Chemistry - Science)</option>
+              <option value="Classes 11 to 12 (Mathematics - Science)">Classes 11 to 12 (Mathematics - Science)</option>
+              <option value="Classes 11 to 12 (Biology - Medical Prep)">Classes 11 to 12 (Biology - Medical Prep)</option>
+              <option value="Classes 11 to 12 (Accountancy & Economics - Commerce)">Classes 11 to 12 (Accountancy &amp; Economics - Commerce)</option>
+              <option value="Spoken English & Communication Mastery">Spoken English &amp; Communication Mastery</option>
+              <option value="Other / Multiple Subjects">Other / Multiple Subjects</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Preferred Localities in Gorakhpur -->
+        <div class="luxury-field">
+          <label for="teacherLocation">Preferred Areas / Locations in Gorakhpur <span class="hint">(Choose where you can visit)</span></label>
+          <div class="luxury-input-wrap">
+            <i class="fa-solid fa-location-dot field-icon"></i>
+            <input type="text" id="teacherLocation" list="gorakhpurAreasList" placeholder="e.g. Taramandal, Betiahata, Golghar, Medical College..." required>
+            <datalist id="gorakhpurAreasList">
+              <option value="Taramandal, Gorakhpur">
+              <option value="Betiahata, Gorakhpur">
+              <option value="Golghar, Gorakhpur">
+              <option value="Medical College Road, Gorakhpur">
+              <option value="Rapti Nagar, Gorakhpur">
+              <option value="Rustampur, Gorakhpur">
+              <option value="Mohaddipur, Gorakhpur">
+              <option value="Shahpur, Gorakhpur">
+              <option value="Asuran Chowk, Gorakhpur">
+              <option value="Civil Lines, Gorakhpur">
+              <option value="Basharatpur, Gorakhpur">
+              <option value="Gorakhnath, Gorakhpur">
+              <option value="Padri Bazar, Gorakhpur">
+              <option value="Kunraghat, Gorakhpur">
+              <option value="Daudpur, Gorakhpur">
+              <option value="All Areas of Gorakhpur">
+            </datalist>
+          </div>
+        </div>
+
+        <button type="submit" class="luxury-submit-btn" style="background:linear-gradient(135deg,#14C8A0,#0C9A7B);box-shadow:0 12px 28px rgba(12,154,123,0.35);">
+          <i class="fa-solid fa-paper-plane"></i> Submit Teacher Application
         </button>
 
         <div class="form-trust-badges">
@@ -290,13 +363,29 @@
         </div>
       </form>
 
-      <!-- Luxury Success Box -->
+      <!-- Luxury Success Box with Direct WhatsApp Channel Join -->
       <div class="luxury-success-box" id="success">
-        <div class="success-check-ring"><i class="fa-solid fa-check"></i></div>
+        <div class="success-check-ring" style="background:#E2FAF3;color:#0C9A7B;"><i class="fa-solid fa-check"></i></div>
         <h2>Application Received!</h2>
-        <p>Your details have been compiled. Click below to message our teacher relations manager on WhatsApp to complete your verification.</p>
+        <p>Your teacher profile has been registered with Era of Education. Complete the final step below to start receiving student inquiries:</p>
+        
+        <!-- STEP 2: WhatsApp Channel Card -->
+        <div style="background:#F0FDF4;border:2px dashed #22C55E;border-radius:18px;padding:22px 18px;margin:20px 0 24px;text-align:center;">
+          <div style="width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px;box-shadow:0 6px 18px rgba(37,211,102,0.35);">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <span style="background:#DCFCE7;color:#15803D;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:6px;">MANDATORY FOR TUTORS</span>
+          <h3 style="font-size:19px;color:#14532D;margin:0 0 6px;font-family:'Poppins',sans-serif;">Step 2: Join WhatsApp Teachers Channel</h3>
+          <p style="font-size:13.5px;color:#166534;margin:0 0 16px;line-height:1.5;">
+            Join our official Teachers Channel to receive daily student requirements, free demo assignments, and new batch alerts in Gorakhpur.
+          </p>
+          <a href="https://whatsapp.com/channel/0029Vb8QLVbL7UVYXiKoW03V" target="_blank" rel="noopener noreferrer" id="teacherJoinChannelBtn" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#ffffff;padding:14px 28px;border-radius:999px;font-weight:800;font-size:15.5px;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,0.4);transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            <i class="fa-brands fa-whatsapp" style="font-size:22px;"></i> Join WhatsApp Teachers Channel Now
+          </a>
+        </div>
+
         <div class="success-action-btns">
-          <button type="button" class="btn-open-wa" id="teacherOpenWhatsapp"><i class="fa-brands fa-whatsapp"></i> Open WhatsApp Chat</button>
+          <button type="button" class="btn-open-wa" id="teacherOpenWhatsapp"><i class="fa-brands fa-whatsapp"></i> Chat with Coordinator</button>
           <button type="button" class="btn-reset-form" onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i> Submit Another</button>
         </div>
       </div>
@@ -412,27 +501,37 @@
 <script src="js/script.js?v=4.3"></script>
 <script src="js/guruji.js?v=4.3"></script>
 <script>
-// Form Submit -> Send Lead to WhatsApp
+// Form Submit -> Send Lead to WhatsApp & prompt WhatsApp Channel
 const form = document.getElementById("teacherForm");
 const success = document.getElementById("success");
 
 form.addEventListener("submit", function(e){
   e.preventDefault();
 
-  const locVal = document.getElementById("teacherLocation") ? document.getElementById("teacherLocation").value : "";
+  const name = document.getElementById("teacherName").value.trim();
+  const mobile = document.getElementById("teacherMobile").value.trim();
+  const qual = document.getElementById("teacherQualification").value;
+  const exp = document.getElementById("teacherExperience").value;
+  const subj = document.getElementById("teacherSubject").value;
+  const locVal = document.getElementById("teacherLocation") ? document.getElementById("teacherLocation").value.trim() : "";
+
   const message =
 `👨‍🏫 Era of Education - New Teacher Registration
 
-Teacher Name: ${document.getElementById("teacherName").value}
-Subject & Classes: ${document.getElementById("teacherSubject").value}
-Experience: ${document.getElementById("teacherExperience").value}
-Mobile: ${document.getElementById("teacherMobile").value}${locVal ? '\nPreferred Area: ' + locVal : ''}
+Teacher Name: ${name}
+Mobile / WhatsApp: ${mobile}
+Qualification: ${qual}
+Experience: ${exp}
+Subject & Classes: ${subj}${locVal ? '\nPreferred Area: ' + locVal : ''}
 
-Please review this teacher application and contact for verification.`;
+I have registered on the website and want to start teaching in Gorakhpur.`;
 
   window.__lastWhatsAppMessage = message;
   form.style.display = "none";
   success.style.display = "block";
+  success.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  // Open WhatsApp in new tab with lead message
   openWhatsApp(message);
 });
 

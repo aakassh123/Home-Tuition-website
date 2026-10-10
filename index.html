@@ -102,7 +102,15 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "1-on-1 Doorstep Home Tuition (Class 1-12)",
-                "description": "Personalized home tuition for CBSE, ICSE, and UP Board students across Gorakhpur."
+                "description": "Personalized home tuition for CBSE, ICSE, and UP Board students across all localities in Gorakhpur."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Verified Female Home Tutors in Gorakhpur",
+                "description": "Safe, verified lady tutors for female students and primary school children in Gorakhpur."
               }
             },
             {
@@ -110,7 +118,7 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Spoken English & Communication Mastery Classes",
-                "description": "Comprehensive English speaking, grammar, fluency, and personality development classes."
+                "description": "Comprehensive English speaking, grammar, fluency, and personality development classes in Gorakhpur."
               }
             },
             {
@@ -149,6 +157,21 @@
         ],
         "areaServed": [
           { "@type": "City", "name": "Gorakhpur" },
+          { "@type": "Place", "name": "Taramandal, Gorakhpur" },
+          { "@type": "Place", "name": "Golghar, Gorakhpur" },
+          { "@type": "Place", "name": "Betiahata, Gorakhpur" },
+          { "@type": "Place", "name": "Medical College Road, Gorakhpur" },
+          { "@type": "Place", "name": "Rapti Nagar, Gorakhpur" },
+          { "@type": "Place", "name": "Rustampur, Gorakhpur" },
+          { "@type": "Place", "name": "Mohaddipur, Gorakhpur" },
+          { "@type": "Place", "name": "Shahpur, Gorakhpur" },
+          { "@type": "Place", "name": "Asuran Chowk, Gorakhpur" },
+          { "@type": "Place", "name": "Civil Lines, Gorakhpur" },
+          { "@type": "Place", "name": "Basharatpur, Gorakhpur" },
+          { "@type": "Place", "name": "Gorakhnath, Gorakhpur" },
+          { "@type": "Place", "name": "Padri Bazar, Gorakhpur" },
+          { "@type": "Place", "name": "Kunraghat, Gorakhpur" },
+          { "@type": "Place", "name": "Daudpur, Gorakhpur" },
           { "@type": "AdministrativeArea", "name": "Uttar Pradesh" }
         ],
         "sameAs": [
@@ -445,31 +468,335 @@
 </section>
 
 <!-- Local SEO Coverage: Popular Localities in Gorakhpur -->
-<section class="local-coverage-section reveal" id="localities">
-  <div class="container-xl" style="max-width:1100px;margin:0 auto;">
-    <div style="text-align:center;max-width:800px;margin:0 auto 36px;">
-      <span class="pill-badge pill-teal">📍 Verified Local Tutors Across Gorakhpur</span>
-      <h2 style="font-size:32px;color:var(--indigo-900);margin:10px 0;">Home Tuition Available Across All Gorakhpur Areas</h2>
-      <p style="color:var(--text-mute);font-size:16px;">We provide doorstep home tutors in all major residential localities of Gorakhpur for CBSE, ICSE, and UP Board:</p>
+<section class="local-coverage-section reveal" id="localities" style="padding: 70px 20px; background: #F8FAFC;">
+  <div class="container-xl local-hub-wrap">
+    <div style="text-align:center;max-width:820px;margin:0 auto 30px;">
+      <span class="pill-badge pill-teal"><i class="fa-solid fa-map-location-dot"></i> Verified Local Tutors Across Gorakhpur</span>
+      <h2 style="font-size:clamp(26px,3.5vw,36px);color:var(--indigo-900);margin:12px 0 8px;font-family:'Poppins',sans-serif;">Best Home Tuition in Gorakhpur — Area-Wise Verified Tutors</h2>
+      <p style="color:var(--text-mute);font-size:16px;line-height:1.6;">Doorstep 1-on-1 private home tutors available across every residential locality in Gorakhpur for CBSE, ICSE, and UP Board (Classes 1–12):</p>
     </div>
 
-    <div class="locality-grid">
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Taramandal</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Golghar</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Betiahata</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Medical College Road</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Rapti Nagar</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Rustampur</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Mohaddipur</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Shahpur</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Asuran Chowk</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Civil Lines</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Basharatpur</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Gorakhnath</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Padri Bazar</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Daudpur</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Kusumhi</strong></div>
-      <div class="locality-card"><i class="fa-solid fa-location-dot"></i> <strong>Surajkund</strong></div>
+    <!-- Locality Quick Search / Filter Bar -->
+    <div class="local-search-bar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="localityFilterInput" placeholder="Filter by your locality in Gorakhpur (e.g. Taramandal, Betiahata, Medical Road)...">
+    </div>
+
+    <!-- Rich Interactive Locality Grid -->
+    <div class="locality-grid-rich" id="localityGridRich">
+      <div class="locality-rich-card" data-area="taramandal buddha gate nandan nagar">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Taramandal</h4>
+            <span>Near Buddha Gate &amp; Lake Road</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>45+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 4 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-graduation-cap"></i> CBSE, ICSE &amp; UP Board</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Taramandal,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book Tutor in Taramandal
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="golghar town hall baldev plaza">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Golghar</h4>
+            <span>City Center &amp; Commercial Hub</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>50+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Instant Demo Match</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-graduation-cap"></i> Maths, Science &amp; Commerce</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Golghar,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book Tutor in Golghar
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="betiahata alankar">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Betiahata</h4>
+            <span>Prime Residential Locality</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>38+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 6 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-person-dress"></i> Female Tutors Available</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Betiahata,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book Tutor in Betiahata
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="medical college road brd">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Medical College Road</h4>
+            <span>BRD Medical Corridor</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>42+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 6 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-flask"></i> NEET / JEE Foundation</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20on%20Medical%20College%20Road,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book on Medical Road
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="rapti nagar phase 1 2 3 4">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Rapti Nagar</h4>
+            <span>Phases 1, 2, 3 &amp; 4</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>35+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 8 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-book"></i> Classes 1 to 12 All Boards</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Rapti%20Nagar,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Rapti Nagar
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="rustampur daudpur bypass">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Rustampur &amp; Daudpur</h4>
+            <span>South Gorakhpur Area</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>30+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 8 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-person-dress"></i> Lady Tutors Available</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Rustampur,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Rustampur
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="mohaddipur charfatak university road">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Mohaddipur</h4>
+            <span>Charfatak &amp; DDU University Belt</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>34+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 6 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-graduation-cap"></i> Senior Mentors Ready</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Mohaddipur,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Mohaddipur
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="shahpur gita vatika geeta vatika">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Shahpur</h4>
+            <span>Gita Vatika &amp; Surrounding Colony</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>40+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 4 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-calculator"></i> Maths &amp; Science Specialists</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Shahpur,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Shahpur
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="asuran chowk asuran chowk road">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Asuran Chowk</h4>
+            <span>Education Hub Junction</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>36+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 6 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-graduation-cap"></i> CBSE &amp; ICSE Experts</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20near%20Asuran,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book at Asuran
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="civil lines cantt park road">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Civil Lines &amp; Cantt</h4>
+            <span>Park Road &amp; Officers Colony</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>28+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 6 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-comments"></i> Spoken English Experts</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Civil%20Lines,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Civil Lines
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="basharatpur medical mor">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Basharatpur</h4>
+            <span>Central North Gorakhpur</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>25+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 8 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-book-open"></i> All Classes 1 to 12</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Basharatpur,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Basharatpur
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="gorakhnath temple mandir subhash nagar">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Gorakhnath</h4>
+            <span>Temple Road &amp; Subhash Nagar</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>32+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 8 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-award"></i> UP &amp; CBSE Specialists</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Gorakhnath,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Gorakhnath
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="padri bazar jail road">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Padri Bazar</h4>
+            <span>Jail Road &amp; Jungle Dhusan Belt</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>22+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 12 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-person-dress"></i> Lady Tutors Available</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Padri%20Bazar,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Padri Bazar
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="kunraghat mmmut air force">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Kunraghat</h4>
+            <span>MMMUT Campus &amp; Air Force Belt</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>26+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 8 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-microscope"></i> PCM &amp; Science Specialists</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Kunraghat,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Kunraghat
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="surajkund tiwaripur">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Surajkund</h4>
+            <span>Tiwaripur &amp; West Gorakhpur</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>20+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 12 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-book"></i> Foundation Classes 1-10</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Surajkund,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Surajkund
+        </a>
+      </div>
+
+      <div class="locality-rich-card" data-area="bargadwa industrial area">
+        <div class="locality-rich-head">
+          <div class="locality-rich-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="locality-rich-title">
+            <h4>Bargadwa</h4>
+            <span>Industrial Corridor &amp; NH-24</span>
+          </div>
+        </div>
+        <div class="locality-meta-list">
+          <div class="locality-meta-item"><i class="fa-solid fa-circle-check"></i> <strong>18+ Verified Tutors</strong></div>
+          <div class="locality-meta-item"><i class="fa-solid fa-bolt"></i> Doorstep match within 12 hrs</div>
+          <div class="locality-meta-item"><i class="fa-solid fa-graduation-cap"></i> All Subjects &amp; Boards</div>
+        </div>
+        <a href="https://wa.me/917289053560?text=Hi,%20I%20am%20looking%20for%20a%20home%20tutor%20in%20Bargadwa,%20Gorakhpur." target="_blank" rel="noopener noreferrer" class="locality-btn-book">
+          <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Book in Bargadwa
+        </a>
+      </div>
+    </div>
+
+    <!-- Local SEO Content & School Coverage Pillar -->
+    <div class="local-seo-feature-box">
+      <div style="text-align:center;max-width:740px;margin:0 auto 20px;">
+        <span class="pill-badge pill-purple">🏆 Gorakhpur's #1 Home Tutoring Bureau</span>
+        <h3 style="font-size:24px;color:#0F172A;margin:10px 0 6px;font-family:'Poppins',sans-serif;">Why Parents Across Gorakhpur Trust Era of Education</h3>
+        <p style="color:#64748B;font-size:14.5px;">Customized 1-on-1 personal mentorship mapped directly to your child's school curriculum and learning speed.</p>
+      </div>
+
+      <div class="local-seo-feature-grid">
+        <div class="local-seo-col">
+          <h3><i class="fa-solid fa-school" style="color:#4C3FE0;"></i> Top Gorakhpur Schools Covered</h3>
+          <p>Our tutors teach students from prominent schools including <strong>GN National Public School (GNNPS), Delhi Public School (DPS Gorakhpur), Little Flower School, St. Joseph's School, Central Academy, Divine Public School, and Carmel Girls School</strong>.</p>
+        </div>
+
+        <div class="local-seo-col">
+          <h3><i class="fa-solid fa-person-dress" style="color:#10B981;"></i> Female Home Tutors in Gorakhpur</h3>
+          <p>We have <strong>120+ background-verified female tutors</strong> in Gorakhpur for parents seeking lady teachers for primary kids and girl students, providing maximum safety, comfort, and personalized academic guidance.</p>
+        </div>
+
+        <div class="local-seo-col">
+          <h3><i class="fa-solid fa-atom" style="color:#FF7A30;"></i> Science &amp; Maths Specialists</h3>
+          <p>Struggling with Board exams or foundational concepts? Our specialized tutors for <strong>Mathematics, Physics, Chemistry, and Biology</strong> (Classes 9, 10, 11 &amp; 12) focus on chapter-wise conceptual mastery and mock tests.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

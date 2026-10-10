@@ -465,4 +465,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  /* ---------- GORAKHPUR LOCALITIES REAL-TIME FILTER ---------- */
+  const localityInput = document.getElementById("localityFilterInput");
+  const localityCards = document.querySelectorAll(".locality-rich-card");
+
+  if (localityInput && localityCards.length) {
+    localityInput.addEventListener("input", () => {
+      const query = localityInput.value.toLowerCase().trim();
+      localityCards.forEach((card) => {
+        const areaData = (card.getAttribute("data-area") || "").toLowerCase();
+        const text = card.textContent.toLowerCase();
+        if (!query || areaData.includes(query) || text.includes(query)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  }
 });

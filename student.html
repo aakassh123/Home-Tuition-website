@@ -240,28 +240,10 @@
       <form id="studentForm">
         <div class="form-grid-2">
           <div class="luxury-field">
-            <label for="studentName">Student Name <span class="req">*</span></label>
+            <label for="studentName">Student / Parent Name <span class="req">*</span></label>
             <div class="luxury-input-wrap">
               <i class="fa-solid fa-user field-icon"></i>
-              <input type="text" id="studentName" placeholder="Enter student full name" required autocomplete="name">
-            </div>
-          </div>
-
-          <div class="luxury-field">
-            <label for="studentClass">Class & Board <span class="req">*</span></label>
-            <div class="luxury-input-wrap">
-              <i class="fa-solid fa-graduation-cap field-icon"></i>
-              <input type="text" id="studentClass" placeholder="e.g. Class 10 (CBSE / ICSE / UP)" required>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-grid-2">
-          <div class="luxury-field">
-            <label for="schoolName">School Name <span class="req">*</span></label>
-            <div class="luxury-input-wrap">
-              <i class="fa-solid fa-school field-icon"></i>
-              <input type="text" id="schoolName" placeholder="Enter school name" required>
+              <input type="text" id="studentName" placeholder="Enter student or parent name" required autocomplete="name">
             </div>
           </div>
 
@@ -274,30 +256,92 @@
           </div>
         </div>
 
-        <div class="luxury-field">
-          <label for="studentProgram">Select Learning Program <span class="req">*</span></label>
-          <div class="luxury-input-wrap">
-            <i class="fa-solid fa-book-open-reader field-icon"></i>
-            <select id="studentProgram" required style="padding-left:44px;">
-              <option value="Home Tuition - All Subjects (Class 1-12)">Home Tuition: All Subjects (1-on-1 Doorstep Tutor)</option>
-              <option value="Home Tuition - Maths & Science Specialization">Home Tuition: Maths & Science Specialization</option>
-              <option value="Spoken English & Communication Mastery">Spoken English & Communication Mastery Classes</option>
-              <option value="Home Tuition - Commerce / Accounts">Home Tuition: Commerce & Accountancy (Class 11-12)</option>
-              <option value="Board Exam Fast-Track Preparation">Board Exam Fast-Track Preparation (CBSE / ICSE / UP)</option>
-            </select>
+        <div class="form-grid-2">
+          <div class="luxury-field">
+            <label for="studentClass">Select Class / Level <span class="req">*</span></label>
+            <div class="luxury-input-wrap">
+              <i class="fa-solid fa-graduation-cap field-icon"></i>
+              <select id="studentClass" required style="padding-left:44px;">
+                <option value="" disabled selected>Select Class</option>
+                <option value="Class 1 to 5 (Primary Foundation)">Class 1 to 5 (Primary Foundation)</option>
+                <option value="Class 6 to 8 (Middle School)">Class 6 to 8 (Middle School)</option>
+                <option value="Class 9 to 10 (Board Exam Prep)">Class 9 to 10 (Board Exam Prep)</option>
+                <option value="Class 11 to 12 (Science / Commerce / Arts)">Class 11 to 12 (Science / Commerce / Arts)</option>
+                <option value="Spoken English & Communication Mastery">Spoken English &amp; Communication Mastery</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="luxury-field">
+            <label for="studentBoard">Educational Board <span class="req">*</span></label>
+            <div class="luxury-input-wrap">
+              <i class="fa-solid fa-school field-icon"></i>
+              <select id="studentBoard" required style="padding-left:44px;">
+                <option value="CBSE Board" selected>CBSE Board</option>
+                <option value="ICSE / ISC Board">ICSE / ISC Board</option>
+                <option value="UP State Board (English / Hindi)">UP State Board</option>
+                <option value="Other / General">Other Board</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="luxury-field">
+            <label for="studentSubject">Subject Needed <span class="req">*</span></label>
+            <div class="luxury-input-wrap">
+              <i class="fa-solid fa-book-open-reader field-icon"></i>
+              <select id="studentSubject" required style="padding-left:44px;">
+                <option value="All Subjects (Foundation)" selected>All Subjects (General Foundation)</option>
+                <option value="Mathematics Only">Mathematics Specialization</option>
+                <option value="Science (Physics, Chemistry, Biology)">Science (Physics / Chem / Bio)</option>
+                <option value="Commerce, Accounts & Economics">Commerce, Accounts &amp; Economics</option>
+                <option value="English Language & Spoken English">English &amp; Spoken Fluency</option>
+                <option value="Multiple Subjects (Custom)">Multiple Subjects</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="luxury-field">
+            <label for="tutorPreference">Tutor Preference <span class="hint">(Optional)</span></label>
+            <div class="luxury-input-wrap">
+              <i class="fa-solid fa-chalkboard-user field-icon"></i>
+              <select id="tutorPreference" style="padding-left:44px;">
+                <option value="Any Top Verified Tutor" selected>Any Top Verified Tutor</option>
+                <option value="Female / Lady Home Tutor Only">Female / Lady Tutor Only</option>
+                <option value="Senior Subject Specialist (5+ Yrs Exp)">Senior Subject Specialist</option>
+              </select>
+            </div>
           </div>
         </div>
 
         <div class="luxury-field">
-          <label for="studentArea">Your Area in Gorakhpur <span class="hint">(For fast teacher matching)</span></label>
+          <label for="studentArea">Your Locality in Gorakhpur <span class="hint">(For fastest teacher matching)</span></label>
           <div class="luxury-input-wrap">
             <i class="fa-solid fa-location-dot field-icon"></i>
-            <input type="text" id="studentArea" placeholder="e.g. Taramandal, Betiahata, Golghar, Medical College...">
+            <input type="text" id="studentArea" list="studentAreasList" placeholder="e.g. Taramandal, Betiahata, Golghar, Medical College..." required>
+            <datalist id="studentAreasList">
+              <option value="Taramandal, Gorakhpur">
+              <option value="Betiahata, Gorakhpur">
+              <option value="Golghar, Gorakhpur">
+              <option value="Medical College Road, Gorakhpur">
+              <option value="Rapti Nagar, Gorakhpur">
+              <option value="Rustampur, Gorakhpur">
+              <option value="Mohaddipur, Gorakhpur">
+              <option value="Shahpur, Gorakhpur">
+              <option value="Asuran Chowk, Gorakhpur">
+              <option value="Civil Lines, Gorakhpur">
+              <option value="Basharatpur, Gorakhpur">
+              <option value="Gorakhnath, Gorakhpur">
+              <option value="Padri Bazar, Gorakhpur">
+              <option value="Kunraghat, Gorakhpur">
+              <option value="Daudpur, Gorakhpur">
+            </datalist>
           </div>
         </div>
 
         <button type="submit" class="luxury-submit-btn">
-          <i class="fa-brands fa-whatsapp"></i> Submit & Continue on WhatsApp
+          <i class="fa-brands fa-whatsapp"></i> Book 100% Free Demo on WhatsApp
         </button>
 
         <div class="form-trust-badges">
@@ -436,29 +480,38 @@ const success = document.getElementById("success");
 form.addEventListener("submit", function(e){
   e.preventDefault();
 
-  const programVal = document.getElementById("studentProgram") ? document.getElementById("studentProgram").value : "Home Tuition (All Subjects)";
-  const areaVal = document.getElementById("studentArea") ? document.getElementById("studentArea").value : "";
+  const name = document.getElementById("studentName").value.trim();
+  const mobile = document.getElementById("studentMobile").value.trim();
+  const cls = document.getElementById("studentClass").value;
+  const board = document.getElementById("studentBoard").value;
+  const subj = document.getElementById("studentSubject").value;
+  const pref = document.getElementById("tutorPreference").value;
+  const areaVal = document.getElementById("studentArea") ? document.getElementById("studentArea").value.trim() : "";
+
   const message =
-`📚 Era of Education - New Student Demo Request
+`📚 Era of Education - Free Demo Class Request
 
-Student Name: ${document.getElementById("studentName").value}
-Program: ${programVal}
-Class / Board: ${document.getElementById("studentClass").value}
-School Name: ${document.getElementById("schoolName").value}
-Mobile: ${document.getElementById("studentMobile").value}${areaVal ? '\nArea: ' + areaVal : ''}
+Student / Parent Name: ${name}
+WhatsApp Number: ${mobile}
+Class / Level: ${cls}
+Board: ${board}
+Subject Needed: ${subj}
+Tutor Preference: ${pref}${areaVal ? '\nArea in Gorakhpur: ' + areaVal : ''}
 
-Please contact this student to schedule the free trial demo class.`;
+Please connect to schedule the 100% Free Doorstep Demo Class.`;
 
   window.__lastWhatsAppMessage = message;
   form.style.display = "none";
   success.style.display = "block";
+  success.scrollIntoView({ behavior: "smooth", block: "center" });
+
   openWhatsApp(message);
 });
 
 // Fallback button if popup is blocked
 const studentOpenBtn = document.getElementById('studentOpenWhatsapp');
 if (studentOpenBtn) studentOpenBtn.addEventListener('click', () => {
-  const msg = window.__lastWhatsAppMessage || 'Hi, I want to book a free demo class with Era of Education.';
+  const msg = window.__lastWhatsAppMessage || 'Hi, I want to book a free demo class with Era of Education in Gorakhpur.';
   openWhatsApp(msg);
 });
 </script>
