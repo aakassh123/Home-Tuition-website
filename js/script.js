@@ -466,20 +466,83 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- GORAKHPUR LOCALITIES REAL-TIME FILTER ---------- */
+  /* ---------- GORAKHPUR LOCALITIES INTERACTIVE CONTROLLER ---------- */
+  const spotlightCard = document.getElementById("localitySpotlight");
+  const spotlightTitle = document.getElementById("spotlightAreaTitle");
+  const spotlightLandmark = document.getElementById("spotlightAreaLandmark");
+  const spotlightDesc = document.getElementById("spotlightAreaDesc");
+  const spotlightTutors = document.getElementById("spotlightTutorsCount");
+  const spotlightSpeed = document.getElementById("spotlightTurnaround");
+  const spotlightWaBtn = document.getElementById("spotlightBookWaBtn");
+  const spotlightDemoBtn = document.getElementById("spotlightDemoBtn");
+  const localityChips = document.querySelectorAll(".locality-chip-card");
+  const localityTabs = document.querySelectorAll(".locality-tab-btn");
   const localityInput = document.getElementById("localityFilterInput");
-  const localityCards = document.querySelectorAll(".locality-rich-card");
 
-  if (localityInput && localityCards.length) {
+  // 1. Chip Click -> Smoothly Update Spotlight Card
+  localityChips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      localityChips.forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+
+      const name = chip.getAttribute("data-name") || "Taramandal, Gorakhpur";
+      const landmark = chip.getAttribute("data-landmark") || "Gorakhpur Area";
+      const desc = chip.getAttribute("data-desc") || "Experienced doorstep home tutors ready for classes.";
+      const tutors = chip.getAttribute("data-tutors") || "35+ Verified Tutors";
+      const speed = chip.getAttribute("data-speed") || "< 6 Hours Match";
+
+      if (spotlightTitle) spotlightTitle.textContent = name;
+      if (spotlightLandmark) spotlightLandmark.textContent = landmark;
+      if (spotlightDesc) spotlightDesc.textContent = desc;
+      if (spotlightTutors) spotlightTutors.textContent = tutors;
+      if (spotlightSpeed) spotlightSpeed.innerHTML = speed;
+
+      const baseAreaName = name.replace(", Gorakhpur", "").trim();
+      if (spotlightWaBtn) {
+        spotlightWaBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi, I am looking for a verified home tutor in ${name}.`)}`;
+        spotlightWaBtn.innerHTML = `<i class="fa-brands fa-whatsapp"></i> Book Tutor in ${baseAreaName}`;
+      }
+      if (spotlightDemoBtn) {
+        spotlightDemoBtn.href = `demo.html?area=${encodeURIComponent(baseAreaName)}`;
+      }
+
+      // Subtle pulse feedback
+      if (spotlightCard) {
+        spotlightCard.style.transform = "scale(0.99)";
+        setTimeout(() => { spotlightCard.style.transform = "scale(1)"; }, 150);
+      }
+    });
+  });
+
+  // 2. Category Tab Filtering
+  localityTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      localityTabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      const category = tab.getAttribute("data-cat");
+      localityChips.forEach((chip) => {
+        const chipCat = chip.getAttribute("data-cat");
+        if (category === "all" || chipCat === category) {
+          chip.style.display = "flex";
+        } else {
+          chip.style.display = "none";
+        }
+      });
+    });
+  });
+
+  // 3. Real-time Search Input
+  if (localityInput && localityChips.length) {
     localityInput.addEventListener("input", () => {
       const query = localityInput.value.toLowerCase().trim();
-      localityCards.forEach((card) => {
-        const areaData = (card.getAttribute("data-area") || "").toLowerCase();
-        const text = card.textContent.toLowerCase();
-        if (!query || areaData.includes(query) || text.includes(query)) {
-          card.style.display = "flex";
+      localityChips.forEach((chip) => {
+        const text = chip.textContent.toLowerCase();
+        const areaName = (chip.getAttribute("data-name") || "").toLowerCase();
+        if (!query || text.includes(query) || areaName.includes(query)) {
+          chip.style.display = "flex";
         } else {
-          card.style.display = "none";
+          chip.style.display = "none";
         }
       });
     });
