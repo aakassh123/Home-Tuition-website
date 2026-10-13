@@ -151,22 +151,15 @@ if (menuToggle && navLinks) {
   });
 }
 
-/* ---------- ACTIVE NAV LINK & MOBILE ICONS ---------- */
+/* ---------- ACTIVE NAV LINK (auto-detect current page) ---------- */
 if (navLinks) {
   let currentPage = window.location.pathname.split("/").pop() || "index.html";
   if (!currentPage || currentPage === "") currentPage = "index.html";
 
-  // Map icons for nav links
-  const iconMap = {
-    "index.html": "fa-house",
-    "student.html": "fa-user-graduate",
-    "teacher.html": "fa-chalkboard-user",
-    "about.html": "fa-circle-info",
-    "team.html": "fa-users",
-    "contact.html": "fa-envelope"
-  };
-
   navLinks.querySelectorAll("a:not(.nav-mobile-cta):not(.nav-mobile-wa)").forEach((link) => {
+    // Remove any icons inside nav links to keep navbar clean, minimal, and typography-focused
+    link.querySelectorAll("i, svg").forEach((el) => el.remove());
+
     const href = link.getAttribute("href");
     const isCurrent = (href === currentPage || (currentPage === "index.html" && (href === "./" || href === "/")));
     
@@ -174,13 +167,6 @@ if (navLinks) {
       link.classList.add("active");
     } else {
       link.classList.remove("active");
-    }
-
-    // Prepend icon if not present
-    if (!link.querySelector("i") && iconMap[href]) {
-      const i = document.createElement("i");
-      i.className = `fa-solid ${iconMap[href]}`;
-      link.prepend(i);
     }
   });
 }
