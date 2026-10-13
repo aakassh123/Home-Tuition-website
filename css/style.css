@@ -212,6 +212,7 @@ body{
 }
 
 /* Responsive hero: stack on medium/small screens to avoid overlap */
+/* Responsive hero: stack on medium/small screens to avoid overlap */
 @media (max-width: 960px) {
   .hero {
     flex-direction: column;
@@ -228,7 +229,7 @@ body{
     max-width: 380px;
   }
   .hero-text h1 {
-    font-size: 30px;
+    font-size: clamp(26px, 5vw, 36px);
     text-align: center;
   }
   .hero-text p {
@@ -244,8 +245,38 @@ body{
   .hero-buttons a {
     display: inline-block;
     width: auto;
-    min-width: 180px;
+    min-width: 170px;
     margin: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 24px 16px 36px;
+    gap: 20px;
+  }
+  .hero-text h1 {
+    font-size: clamp(23px, 6.5vw, 30px);
+    line-height: 1.25;
+  }
+  .hero-badges {
+    justify-content: center;
+    gap: 6px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .hero-buttons a {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 14px 20px;
+    text-align: center;
+  }
+  .hero-image img {
+    max-width: 280px;
   }
 }
 
@@ -346,16 +377,20 @@ body{
 }
 
 .video-wrapper {
-  max-width: 800px;
+  position: relative;
+  width: 100%;
+  max-width: 760px;
   margin: auto;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  aspect-ratio: 16 / 9;
 }
 
 .video-wrapper iframe {
   width: 100%;
-  height: 450px;
+  height: 100%;
+  border: 0;
 }
 .school-ad-section {
   background: #ffffff;
@@ -450,27 +485,49 @@ body{
 
 .pricing-grid {
   display: flex;
-  gap: 30px;
+  gap: 24px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .pricing-card {
   background: white;
-  width: 320px;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  width: 100%;
+  max-width: 340px;
+  padding: 30px 24px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
 .pricing-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
 
 .popular {
   border: 3px solid #f4b400;
-  transform: scale(1.05);
+}
+
+@media (min-width: 769px) {
+  .popular {
+    transform: scale(1.04);
+  }
+  .popular:hover {
+    transform: scale(1.04) translateY(-8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-section {
+    padding: 50px 16px;
+  }
+  .pricing-grid {
+    gap: 18px;
+  }
+  .pricing-card {
+    padding: 24px 20px;
+  }
 }
 
 .badge {
@@ -963,17 +1020,81 @@ button {
 }
 
 @media (max-width: 768px) {
+  .locality-filter-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding: 6px 4px 14px;
+    margin: 16px 0 20px;
+    scrollbar-width: none;
+  }
+  .locality-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .locality-tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 8px 14px;
+  }
   .locality-spotlight-card {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 24px 20px;
+    gap: 20px;
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+  .spotlight-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .spotlight-actions a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 13px 18px;
+    font-size: 14.5px;
   }
   .spotlight-stats-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .spotlight-stat-box {
+    padding: 12px 10px;
   }
   .locality-chips-grid {
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+  }
+  .features {
+    padding: 50px 16px;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .card.icon-card {
+    padding: 18px 12px;
+    font-size: 13.5px;
+    border-radius: 16px;
+  }
+  .local-seo-feature-box {
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+  .local-seo-feature-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  .locality-chips-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
   }
 }
 

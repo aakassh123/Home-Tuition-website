@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#003366">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Book Free Demo Class | Best Home Tuition & Spoken English in Gorakhpur</title>
   <meta name="description" content="Book a 100% free home tuition or Spoken English demo class with Gorakhpur's top mentors and certified trainers. Zero fee, doorstep service for CBSE, ICSE, and UP Board (Class 1-12).">
   <meta name="keywords" content="book free demo class gorakhpur, best home tuition in gorakhpur demo, spoken english free demo gorakhpur, hire home tutor trial gorakhpur, best mentors gorakhpur, top trainers gorakhpur">
@@ -93,22 +97,23 @@
     }
     .demo-card input, .demo-card textarea {
       width: 100%;
-      padding: 13px 16px;
+      padding: 14px 16px;
       margin-bottom: 14px;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid #dde1ea;
-      font-size: 15px;
+      font-size: 16px;
       font-family: inherit;
       box-sizing: border-box;
       outline: none;
       transition: border-color .25s ease;
+      min-height: 48px;
     }
     .demo-card input:focus, .demo-card textarea:focus {
       border-color: var(--indigo-600);
     }
     .demo-card button[type="submit"] {
       width: 100%;
-      padding: 14px;
+      padding: 15px;
       background: var(--grad-cta);
       border: none;
       color: white;
@@ -118,6 +123,7 @@
       cursor: pointer;
       box-shadow: 0 8px 20px rgba(255,94,26,0.35);
       transition: transform .25s ease, box-shadow .25s ease;
+      min-height: 50px;
     }
     .demo-card button[type="submit"]:hover {
       transform: translateY(-2px);
@@ -133,7 +139,8 @@
       margin-bottom: 10px;
     }
     @media (max-width: 480px) {
-      .demo-card { padding: 26px 20px; }
+      .stage { padding: 30px 14px 50px; }
+      .demo-card { padding: 24px 16px; border-radius: 18px; }
       .demo-card h2 { font-size: 21px; }
     }
   </style>

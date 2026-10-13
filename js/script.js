@@ -76,6 +76,20 @@ if (testimonials.length) {
 const backToTopBtn = document.querySelector(".back-to-top");
 
 if (backToTopBtn) {
+  backToTopBtn.style.opacity = "0";
+  backToTopBtn.style.pointerEvents = "none";
+  backToTopBtn.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.style.opacity = "1";
+      backToTopBtn.style.pointerEvents = "auto";
+    } else {
+      backToTopBtn.style.opacity = "0";
+      backToTopBtn.style.pointerEvents = "none";
+    }
+  });
+
   backToTopBtn.addEventListener("click", (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -86,45 +100,151 @@ if (backToTopBtn) {
    NEW MODERN UI BEHAVIOR (theme.css companion)
    ============================================================ */
 
-/* ---------- MOBILE MENU TOGGLE ---------- */
+/* ---------- MOBILE MENU TOGGLE & BACKDROP OVERLAY ---------- */
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
+
+// Ensure backdrop overlay exists
+let mobileOverlay = document.getElementById("mobileMenuOverlay");
+if (!mobileOverlay) {
+  mobileOverlay = document.createElement("div");
+  mobileOverlay.id = "mobileMenuOverlay";
+  mobileOverlay.className = "mobile-menu-overlay";
+  document.body.appendChild(mobileOverlay);
+}
+
+function closeMobileMenu() {
+  if (menuToggle) menuToggle.classList.remove("open");
+  if (navLinks) navLinks.classList.remove("open");
+  if (mobileOverlay) mobileOverlay.classList.remove("active");
+  document.body.classList.remove("menu-open");
+}
+
+function openMobileMenu() {
+  if (menuToggle) menuToggle.classList.add("open");
+  if (navLinks) navLinks.classList.add("open");
+  if (mobileOverlay) mobileOverlay.classList.add("active");
+  document.body.classList.add("menu-open");
+}
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", (e) => {
     e.stopPropagation();
-    menuToggle.classList.toggle("open");
-    navLinks.classList.toggle("open");
+    if (navLinks.classList.contains("open")) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
   });
+
+  // Close when clicking overlay or outside
+  mobileOverlay.addEventListener("click", closeMobileMenu);
 
   navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      menuToggle.classList.remove("open");
-      navLinks.classList.remove("open");
-    });
+    link.addEventListener("click", closeMobileMenu);
   });
 
-  // Close mobile menu when clicking outside
   document.addEventListener("click", (e) => {
     if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-      menuToggle.classList.remove("open");
-      navLinks.classList.remove("open");
+      closeMobileMenu();
     }
   });
 }
 
-/* ---------- ACTIVE NAV LINK (auto-detect current page) ---------- */
+/* ---------- ACTIVE NAV LINK & MOBILE ICONS ---------- */
 if (navLinks) {
   let currentPage = window.location.pathname.split("/").pop() || "index.html";
   if (!currentPage || currentPage === "") currentPage = "index.html";
-  navLinks.querySelectorAll("a").forEach((link) => {
+
+  // Map icons for nav links
+  const iconMap = {
+    "index.html": "fa-house",
+    "student.html": "fa-user-graduate",
+    "teacher.html": "fa-chalkboard-user",
+    "about.html": "fa-circle-info",
+    "team.html": "fa-users",
+    "contact.html": "fa-envelope"
+  };
+
+  navLinks.querySelectorAll("a:not(.nav-mobile-cta):not(.nav-mobile-wa)").forEach((link) => {
     const href = link.getAttribute("href");
-    if (href === currentPage || (currentPage === "index.html" && (href === "./" || href === "/"))) {
+    const isCurrent = (href === currentPage || (currentPage === "index.html" && (href === "./" || href === "/")));
+    
+    if (isCurrent) {
       link.classList.add("active");
     } else {
       link.classList.remove("active");
     }
+
+    // Prepend icon if not present
+    if (!link.querySelector("i") && iconMap[href]) {
+      const i = document.createElement("i");
+      i.className = `fa-solid ${iconMap[href]}`;
+      link.prepend(i);
+    }
   });
+}
+
+/* ---------- UNIVERSAL MOBILE BOTTOM ACTION BAR (< 768px) ---------- */
+function initMobileBottomBar() {
+  let bar = document.getElementById("mobileBottomBar");
+  if (!bar) {
+    bar = document.createElement("nav");
+    bar.id = "mobileBottomBar";
+    bar.className = "mobile-bottom-bar";
+    bar.setAttribute("aria-label", "Mobile Quick Navigation");
+    bar.innerHTML = `
+      <a href="index.html" class="mob-tab" data-page="index.html">
+        <div class="mob-tab-icon"><i class="fa-solid fa-house"></i></div>
+        <span>Home</span>
+      </a>
+      <a href="tel:+917289053560" class="mob-tab mob-tab-call" aria-label="Call Helpline">
+        <div class="mob-tab-icon"><i class="fa-solid fa-phone-volume"></i></div>
+        <span>Call Now</span>
+      </a>
+      <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello Era of Education, I am interested in your home tuition and Spoken English services.")}" target="_blank" rel="noopener noreferrer" class="mob-tab mob-tab-wa" aria-label="WhatsApp Helpline">
+        <div class="mob-tab-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <span>WhatsApp</span>
+      </a>
+      <a href="demo.html" class="mob-tab mob-tab-demo" data-page="demo.html" aria-label="Book Free Demo Class">
+        <div class="mob-tab-icon"><i class="fa-solid fa-gift"></i></div>
+        <span>Free Demo</span>
+      </a>
+      <button type="button" class="mob-tab mob-tab-ai" id="mobGurujiBtn" aria-label="Ask Guruji AI Assistant">
+        <div class="mob-tab-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <span>Guruji AI</span>
+      </button>
+    `;
+    document.body.appendChild(bar);
+  }
+
+  // Active state detection
+  let cur = window.location.pathname.split("/").pop() || "index.html";
+  if (!cur || cur === "") cur = "index.html";
+  bar.querySelectorAll(".mob-tab[data-page]").forEach((tab) => {
+    if (tab.getAttribute("data-page") === cur) {
+      tab.classList.add("active");
+    } else {
+      tab.classList.remove("active");
+    }
+  });
+
+  // Handle Guruji button in mobile bottom bar
+  const mobGurujiBtn = document.getElementById("mobGurujiBtn");
+  if (mobGurujiBtn) {
+    mobGurujiBtn.addEventListener("click", () => {
+      const launcher = document.getElementById("gurujiLauncher");
+      if (launcher) {
+        launcher.click();
+      }
+    });
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMobileBottomBar);
+} else {
+  initMobileBottomBar();
 }
 
 /* ---------- STICKY HEADER SHADOW ON SCROLL ---------- */
@@ -510,6 +630,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (spotlightCard) {
         spotlightCard.style.transform = "scale(0.99)";
         setTimeout(() => { spotlightCard.style.transform = "scale(1)"; }, 150);
+
+        // On mobile viewports, auto-scroll to spotlight card so the user sees the matched tutors & actions
+        if (window.innerWidth <= 768) {
+          spotlightCard.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     });
   });
