@@ -25,26 +25,100 @@ function openWhatsApp(message) {
   window.open(url, "_blank");
 }
 
-/* ---------- HERO IMAGE SLIDER (Home page only) ---------- */
-const heroImages = [
-  "https://images.pexels.com/photos/4145193/pexels-photo-4145193.jpeg",
-  "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg",
-  "https://images.pexels.com/photos/8199703/pexels-photo-8199703.jpeg"
-];
+/* ---------- HERO IMAGE TRANSITION SLIDER (Home page only) ---------- */
+(function initHeroSlider() {
+  const slider = document.getElementById("heroSlider");
+  if (!slider) return;
 
-let heroIndex = 0;
-const heroImg = document.getElementById("heroImg");
+  const slides = slider.querySelectorAll(".hero-slide");
+  const dots = slider.querySelectorAll(".hero-dot");
+  const prevBtn = document.getElementById("heroPrevBtn");
+  const nextBtn = document.getElementById("heroNextBtn");
 
-if (heroImg) {
-  setInterval(() => {
-    heroImg.style.opacity = 0;
-    setTimeout(() => {
-      heroIndex = (heroIndex + 1) % heroImages.length;
-      heroImg.src = heroImages[heroIndex];
-      heroImg.style.opacity = 1;
-    }, 500);
-  }, 2500);
-}
+  if (!slides.length) return;
+
+  let currentSlide = 0;
+  let slideInterval = null;
+  const slideDuration = 4000; // 4 seconds transition time
+
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove("active");
+    if (dots[currentSlide]) dots[currentSlide].classList.remove("active");
+
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides[currentSlide].classList.add("active");
+    if (dots[currentSlide]) dots[currentSlide].classList.add("active");
+  }
+
+  function nextSlide() {
+    goToSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentSlide - 1);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    slideInterval = setInterval(nextSlide, slideDuration);
+  }
+
+  function stopAutoplay() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+      slideInterval = null;
+    }
+  }
+
+  // Event Listeners
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      startAutoplay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      startAutoplay();
+    });
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener("click", () => {
+      goToSlide(idx);
+      startAutoplay();
+    });
+  });
+
+  // Pause on hover
+  slider.addEventListener("mouseenter", stopAutoplay);
+  slider.addEventListener("mouseleave", startAutoplay);
+
+  // Touch Swipe for mobile devices
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slider.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoplay();
+  }, { passive: true });
+
+  slider.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 45) {
+      nextSlide();
+    } else if (touchEndX - touchStartX > 45) {
+      prevSlide();
+    }
+    startAutoplay();
+  }, { passive: true });
+
+  // Start rotation
+  startAutoplay();
+})();
 
 /* ---------- SCROLL REVEAL ANIMATION ---------- */
 const animatedElements = document.querySelectorAll(".animate");
@@ -465,4 +539,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+  /* ---------- GORAKHPUR LOCALITY FILTER PILLS ---------- */
+  document.querySelectorAll(".area-pill").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const container = pill.closest(".local-coverage-section");
+      if (!container) return;
+      container.querySelectorAll(".area-pill").forEach((p) => p.classList.remove("active"));
+      pill.classList.add("active");
+      const filter = pill.getAttribute("data-filter");
+      container.querySelectorAll(".locality-card-rich").forEach((card) => {
+        if (filter === "all" || card.getAttribute("data-zone") === filter) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+
 });

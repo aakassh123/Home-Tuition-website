@@ -1,44 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://eraofeducation.in/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/Logo.PNG</image:loc>
+      <image:title>Era of Education Official Logo - Best Home Tuition in Gorakhpur</image:title>
+      <image:caption>Official logo of Era of Education, Gorakhpur's top home tuition and tutor bureau founded by Akash Sahani.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/hero-group-study-1.jpeg</image:loc>
+      <image:title>Best Home Tuition in Gorakhpur - Interactive 1-on-1 and Group Learning</image:title>
+      <image:caption>Students studying with verified home tutors from Era of Education in Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/hero-group-study-2.jpeg</image:loc>
+      <image:title>Dedicated Private Home Tutoring Session in Gorakhpur</image:title>
+      <image:caption>Passionate home tutor explaining concepts to students in Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/ceo-founder.jpg</image:loc>
+      <image:title>Akash Sahani - Founder and CEO of Era of Education Gorakhpur</image:title>
+      <image:caption>Akash Sahani, visionary Founder and CEO of Era of Education, leading Gorakhpur's premier home tuition network.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
   </url>
   <url>
     <loc>https://eraofeducation.in/student.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://eraofeducation.in/demo.html</loc>
-    <lastmod>2026-09-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/student-hero.jpeg</image:loc>
+      <image:title>Student Learning at Home with Personal Private Tutor in Gorakhpur</image:title>
+      <image:caption>Child studying with 1-on-1 private home tutor from Era of Education in Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
   </url>
   <url>
     <loc>https://eraofeducation.in/teacher.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/teacher-hero.jpeg</image:loc>
+      <image:title>Home Tutor and Tuition Teacher Jobs in Gorakhpur - Era of Education</image:title>
+      <image:caption>Verified home tutor teaching with confidence in Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://eraofeducation.in/demo.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/demo-hero-bg.jpeg</image:loc>
+      <image:title>Book Free Trial Demo Class in Gorakhpur - Era of Education</image:title>
+      <image:caption>Free trial home tuition session in Gorakhpur across CBSE, ICSE, and UP Board.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
   </url>
   <url>
     <loc>https://eraofeducation.in/about.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/ceo-founder.jpg</image:loc>
+      <image:title>Akash Sahani - Founder and CEO of Era of Education</image:title>
+      <image:caption>Founder &amp; CEO Akash Sahani leading educational transformation in Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/about-hero-bg.jpeg</image:loc>
+      <image:title>About Era of Education - Academic Mission and Story</image:title>
+      <image:caption>Our educational journey connecting students with certified mentors.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/gallery-1-study-group.jpeg</image:loc>
+      <image:title>Peer Study Group Learning at Era of Education</image:title>
+      <image:caption>Students engaged in collaborative academic study in Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/gallery-2-homework-focus.jpeg</image:loc>
+      <image:title>Homework Assistance and Focus Session</image:title>
+      <image:caption>Personalized homework coaching by home tutors in Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/gallery-3-online-session.jpeg</image:loc>
+      <image:title>Interactive Digital Learning Support</image:title>
+      <image:caption>Modern multimedia tools combined with home tuition.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/gallery-4-project-craft.jpeg</image:loc>
+      <image:title>Creative Project and Concept Work</image:title>
+      <image:caption>Hands-on project work and conceptual understanding.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/gallery-5-concept-notes.jpeg</image:loc>
+      <image:title>Comprehensive Study Notes and Revision</image:title>
+      <image:caption>Curated notes for CBSE, ICSE, and UP Board examinations.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/gallery-6-peer-learning.jpeg</image:loc>
+      <image:title>Active Discussion and Mentoring</image:title>
+      <image:caption>Doubt clearance and active learning sessions in Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/gallery-7-worksheet-fun.jpeg</image:loc>
+      <image:title>Daily Practice Worksheets and Tests</image:title>
+      <image:caption>Structured weekly tests to track student progress.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/gallery-8-digital-skills.jpeg</image:loc>
+      <image:title>Smart Skills and Future Learning</image:title>
+      <image:caption>Empowering students with 21st century communication and analytical skills.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
   </url>
   <url>
     <loc>https://eraofeducation.in/team.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/ceo-founder.jpg</image:loc>
+      <image:title>Akash Sahani - Founder &amp; CEO, Era of Education</image:title>
+      <image:caption>Founder and Chief Executive Officer Akash Sahani leading Era of Education Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/team/team-1-pritam.jpg</image:loc>
+      <image:title>Pritam Kumar Gupta - Commerce Trainer &amp; Mentor</image:title>
+      <image:caption>Commerce mentor and educator at Era of Education Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://eraofeducation.in/images/team/team-2-kshitij.jpg</image:loc>
+      <image:title>Kshitij Mishra - Science Faculty &amp; Mentor</image:title>
+      <image:caption>Science and mathematics tutor at Era of Education Gorakhpur.</image:caption>
+      <image:geo_location>Gorakhpur, Uttar Pradesh, India</image:geo_location>
+    </image:image>
   </url>
   <url>
     <loc>https://eraofeducation.in/contact.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

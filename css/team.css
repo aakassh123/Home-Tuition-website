@@ -13,7 +13,7 @@ body {
 .team-hero {
   min-height: 340px;
   height: clamp(340px, 42vh, 460px);
-  background: url("https://images.pexels.com/photos/4145193/pexels-photo-4145193.jpeg") center/cover no-repeat;
+  background: url("../images/about-hero-bg.jpeg") center/cover no-repeat;
   position: relative;
 }
 
