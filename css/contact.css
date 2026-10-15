@@ -142,3 +142,12 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0, 51, 102, 0.5);
 }
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: calc(74px + env(safe-area-inset-bottom, 0px));
+    right: 14px;
+    width: 44px;
+    height: 44px;
+  }
+}

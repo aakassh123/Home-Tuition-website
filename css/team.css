@@ -74,6 +74,14 @@ body {
   padding:70px 10%;
 }
 
+@media (max-width: 600px) {
+  .team-section {
+    grid-template-columns: 1fr;
+    padding: 30px 16px;
+    gap: 18px;
+  }
+}
+
 .team-card{
   background:white;
   padding:30px;
