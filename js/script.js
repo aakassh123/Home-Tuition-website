@@ -120,18 +120,21 @@ function openWhatsApp(message) {
   startAutoplay();
 })();
 
-/* ---------- SCROLL REVEAL ANIMATION ---------- */
+/* ---------- SCROLL REVEAL ANIMATION (.animate elements) ---------- */
 const animatedElements = document.querySelectorAll(".animate");
 
 if (animatedElements.length) {
-  window.addEventListener("scroll", () => {
+  function checkAnimated() {
+    const isMobile = window.innerWidth <= 768;
     animatedElements.forEach((el) => {
       const position = el.getBoundingClientRect().top;
-      if (position < window.innerHeight - 100) {
+      if (isMobile || position < window.innerHeight - 40) {
         el.classList.add("show");
       }
     });
-  });
+  }
+  checkAnimated();
+  window.addEventListener("scroll", checkAnimated, { passive: true });
 }
 
 /* ---------- TESTIMONIAL SLIDER (Home page) ---------- */
@@ -217,19 +220,43 @@ if (siteHeader) {
 /* ---------- SCROLL REVEAL (IntersectionObserver, for .reveal elements) ---------- */
 const revealEls = document.querySelectorAll(".reveal");
 
-if (revealEls.length && "IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-  revealEls.forEach((el) => revealObserver.observe(el));
+if (revealEls.length) {
+  const showEl = (el) => el.classList.add("show");
+
+  // On mobile devices (<= 768px) or unsupported environments, immediately reveal all elements
+  // to guarantee zero blank/white areas while scrolling on phones
+  if (window.innerWidth <= 768 || !("IntersectionObserver" in window)) {
+    revealEls.forEach(showEl);
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            showEl(entry.target);
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.02,
+        rootMargin: "0px 0px 150px 0px"
+      }
+    );
+
+    revealEls.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 120) {
+        showEl(el);
+      } else {
+        revealObserver.observe(el);
+      }
+    });
+
+    // Failsafe: ensure all elements are visible after 1.5s in case scroll throttling occurs
+    setTimeout(() => {
+      revealEls.forEach(showEl);
+    }, 1500);
+  }
 }
 
 /* ---------- ANIMATED STAT COUNTERS (elements with [data-count]) ---------- */

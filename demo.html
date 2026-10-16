@@ -47,8 +47,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/theme.css?v=9.0">
-  <link rel="stylesheet" href="css/guruji.css?v=9.0">
+  <link rel="stylesheet" href="css/theme.css?v=9.1">
+  <link rel="stylesheet" href="css/guruji.css?v=9.1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -1169,8 +1169,8 @@ html, body {
   </div>
 </footer>
 
-<script src="js/script.js?v=4.3"></script>
-<script src="js/guruji.js?v=4.3"></script>
+<script src="js/script.js?v=9.1"></script>
+<script src="js/guruji.js?v=9.1"></script>
 <script>
 const demoForm = document.getElementById("demoForm");
 const successMsg = document.getElementById("successMsg");
@@ -1201,21 +1201,23 @@ function showNextForm() {
   nextForm.style.display = "block";
 }
 
-nextForm.addEventListener("submit", function(e) {
-  e.preventDefault();
+if (nextForm) {
+  nextForm.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-  const message =
+    const message =
 `🎓 Era of Education - Another Demo Class Request
 
-Name: ${document.getElementById("nextName").value}
-Mobile: ${document.getElementById("nextMobile").value}
-Preferred Subject: ${document.getElementById("nextSubject").value}
+Name: ${document.getElementById("nextName") ? document.getElementById("nextName").value : ""}
+Mobile: ${document.getElementById("nextMobile") ? document.getElementById("nextMobile").value : ""}
+Preferred Subject: ${document.getElementById("nextSubject") ? document.getElementById("nextSubject").value : ""}
 
 Please contact this student to schedule the demo class.`;
 
-  openWhatsApp(message);
-  nextForm.reset();
-});
+    openWhatsApp(message);
+    nextForm.reset();
+  });
+}
 
 const demoOpenBtn = document.getElementById('demoOpenWhatsapp');
 if (demoOpenBtn) demoOpenBtn.addEventListener('click', () => {

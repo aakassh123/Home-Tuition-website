@@ -337,6 +337,11 @@ body {
     flex-direction: column;
     text-align: center;
   }
+  .video-card {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 /* =========================================================

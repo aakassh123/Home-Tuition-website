@@ -37,8 +37,9 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
-html, body {
+body {
   max-width: 100%;
+  width: 100%;
   overflow-x: hidden;
 }
 * { box-sizing: border-box; }
@@ -421,12 +422,38 @@ h1,h2,h3,h4,.font-display{font-family:'Poppins',Arial,sans-serif;}
 .btn-outline:hover{ background:rgba(255,255,255,0.15); transform:translateY(-3px); }
 
 /* ================= REVEAL ANIMATIONS ================= */
-.reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
-.reveal.show{ opacity:1; transform:translateY(0); }
-.reveal-delay-1.show{ transition-delay:.1s; }
-.reveal-delay-2.show{ transition-delay:.2s; }
-.reveal-delay-3.show{ transition-delay:.3s; }
-.reveal-delay-4.show{ transition-delay:.4s; }
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .5s cubic-bezier(0.16, 1, 0.3, 1), transform .5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.reveal-delay-1.show { transition-delay: .08s; }
+.reveal-delay-2.show { transition-delay: .15s; }
+.reveal-delay-3.show { transition-delay: .22s; }
+.reveal-delay-4.show { transition-delay: .3s; }
+
+/* Mobile safety: on phones and small touch screens (<= 768px), disable initial opacity:0
+   so that content NEVER appears as blank white space during touch scrolling */
+@media (max-width: 768px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 
 @keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-12px);} }
 .float{ animation:floaty 4s ease-in-out infinite; }
